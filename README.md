@@ -30,4 +30,4 @@ and Alfresco repository:
   <url>https://artifacts.heedtechnology.com/nexus/content/groups/public</url>
 </repository>
 ~~~
-VIEW project documentation [here](wiki)
+VIEW project documentation [here](https://github.com/archivemanager/server/wiki)
