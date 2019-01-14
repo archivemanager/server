@@ -1,10 +1,10 @@
 ### ArchiveManager Server
-AM Server is a Spring Boot application that relies on the following technologies:
-* Neo4J graph datastore
-* ElasticSearch
-* Generic encryption supporting classes
+AM Server is a Spring Boot application that provides the following functionality:
+* Data Dictionary based data schema including GUI editor
+* Content classification including people corporations and subjects
+* Customized search & navigation
 
-Version 1 of the library uses Spring 5, Neo4J graph datastore.
+Version 1 of the library uses Spring Boot 2.1, Neo4J graph datastore and ElasticSearch.
 
 ### Building and testing
 The project can be built and tested by running Maven command:
