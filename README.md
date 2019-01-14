@@ -29,5 +29,5 @@ and Alfresco repository:
   <id>heedtechnology-maven-repo</id>
   <url>https://artifacts.heedtechnology.com/nexus/content/groups/public</url>
 </repository>
-
-VIEW project documentation <a href="wiki">here</a>
+~~~
+VIEW project documentation [here](wiki)
