@@ -1,0 +1,18 @@
+
+<nav id="breadcrumbs" class="site-breadcrumbs">
+	<ul class="breadcrumb" aria-label="Breadcrumb">
+		<th:block th:each="breadcrumb : ${breadcrumbs}">
+		<li class="first breadcrumb-truncate">
+			<div th:if="${!rstatus.last}">
+			<a href="<c:out value="${breadcrumb.query}" />">
+				<span th:text="${breadcrumb.name}" />
+			</a>
+			<span class="divider">/</span>
+			</div>
+			<div th:if="${rstatus.last}">
+				<span th:text="${breadcrumb.name}" />
+			</div>			
+		</li>
+		</th:block>
+	</ul>
+</nav>

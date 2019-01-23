@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>		
+		<div th:replace="fragments/header :: javascript"/>
+		<link rel="stylesheet" type="text/css" href="/css/documentation.css" />
+
+		<script type="text/javascript" src="/js/documentation.js"></script>
+		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer=""></script>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<table style="width:100%;height:100%;">
+			<tr>
+				<td style="vertical-align:top;height:80px;" colspan="2"><div th:replace="fragments/header :: content" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top;">
+					<div th:replace="fragments/menus :: main" />
+				</td>
+				<td style="width:100%;vertical-align:top;">
+					<div id="javadoc">
+						<div class="sect2">
+							<h3>Administrative Applications</h3>
+							<p>
+								ArchiveManager depends on many great open source projects, perhaps the two most important ones are the Neo4j graph database and Elasticsearch for search and navigation.
+								In standard installations each application is installed and run as an operating system service.
+							</p>
+							<h2>Neo4J Graph Database</h2>
+							<span style="font-size:12px;color:black;">https://neo4j.com</span>
+							<p>
+								Neo4j is the world's leading graph database. It is built from the ground up to be a graph database, meaning that its architecture is designed for optimizing fast management, storage, and the traversal of data.
+								Neo4j can store trillions of entities for the largest datasets imaginable while being sensitive to compact storage.
+							</p>
+							
+							<div class="exampleblock">
+								<div class="title">Neo4J</div>
+								<div class="content">
+									<div class="listingblock">
+										<div class="content">
+											<p>ArchiveManager includes a web-based administrative application for managing and querying the node databstore.  
+											You can access the neo4j application at : <b>http://server-name:7474/browser</b></p> 
+										</div>
+									</div>
+								</div>			
+							</div>
+							
+							<h2>Elasticsearch</h2>
+							<p>
+								Elasticsearch is a distributed, RESTful search and analytics engine capable of solving a growing number of use cases. 
+								As the heart of the Elastic Stack, it centrally stores your data so you can discover the expected and uncover the unexpected.
+							</p>
+							
+							<div class="exampleblock">
+								<div class="title">Kibana</div>
+								<div class="content">
+									<div class="listingblock">
+										<div class="content">
+											<p>ArchiveManager installs a great web-based application for managing and querying Elasticsearch indexes.  
+											You can access kibana at : <b>http://server-name:5600</b></p> 
+										</div>
+									</div>
+								</div>			
+							</div>
+							
+							<div class="admonitionblock note">
+								<table>
+									<tbody>
+										<tr>
+											<td class="icon">
+												<i class="fas fa-info-circle" style="font-size:40px;"></i>
+											</td>
+											<td class="content">
+												When running as a windows service, the Kibana service can take a long time to fully start-up, this can cause windows to report that service has failed to start.
+												It can also appear as though the service is not started despite being set to start automatically.  
+												In most cases the service does ultimately complete successfully and is running in the background, to test this you should try the kibana homepage at <b>http://server-name:5600/app/kibana</b>.
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div style="height:35px;">&nbsp;</div>
+						</div>
+					</div>
+				</td>
+			</tr>			
+		</table>
+	</body>
+</html>

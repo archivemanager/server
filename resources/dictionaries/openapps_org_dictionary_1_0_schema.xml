@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<dictionary qname="openapps_org_dictionary_1_0_schema" name="Data Dictionary" label="" description="data dictionary - model, fields, relationships">
+	<models>
+		<model namespace="openapps_org_dictionary_1_0" localname="dictionary" label="Dictionary" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>Data Dictionary</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="inheritance" mandatory="false" unique="false" hidden="false" label="Inheritance" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_dictionary_1_0" localname="shared" mandatory="false" unique="false" hidden="false" label="Shared" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_classification_1_0" localname="users" label="Users" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_system_1_0" localname="user"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_dictionary_1_0" localname="model" label="Dictionary Model" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>Data Dictionary Model</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="header" mandatory="false" unique="false" hidden="false" label="Header" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="parent" mandatory="false" unique="false" hidden="false" label="Parent" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="qname" mandatory="false" unique="false" hidden="false" label="Qname" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_dictionary_1_0" localname="stored" mandatory="false" unique="false" hidden="false" label="Stored" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_dictionary_1_0" localname="searchable" mandatory="false" unique="false" hidden="false" label="Searchable" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_dictionary_1_0" localname="freetext" mandatory="false" unique="false" hidden="false" label="Freetext" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_dictionary_1_0" localname="auditable" mandatory="false" unique="false" hidden="false" label="Auditable" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_dictionary_1_0" localname="fields" label="Fields" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_dictionary_1_0" localname="field"></target>
+				</association>
+				<association namespace="openapps_org_dictionary_1_0" localname="relations" label="Relations" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_dictionary_1_0" localname="relation"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_dictionary_1_0" localname="field" label="Model Field" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>Data Dictionary</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="qname" mandatory="false" unique="false" hidden="false" label="Qname" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="label" mandatory="false" unique="false" hidden="false" label="Label" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="value" mandatory="false" unique="false" hidden="false" label="Value" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="format" mandatory="false" unique="false" hidden="false" label="Format" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_dictionary_1_0" localname="index" mandatory="false" unique="false" hidden="false" label="Index" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_dictionary_1_0" localname="mandatory" mandatory="false" unique="false" hidden="false" label="Mandatory" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_dictionary_1_0" localname="unique" mandatory="false" unique="false" hidden="false" label="Unique" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_dictionary_1_0" localname="hidden" mandatory="false" unique="false" hidden="false" label="Hidden" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="sortable" mandatory="false" unique="false" hidden="false" label="Sortable" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="searchable" mandatory="false" unique="false" hidden="false" label="Searchable" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_dictionary_1_0" localname="minValue" mandatory="false" unique="false" hidden="false" label="MinValue" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_dictionary_1_0" localname="maxValue" mandatory="false" unique="false" hidden="false" label="MaxValue" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_dictionary_1_0" localname="minSize" mandatory="false" unique="false" hidden="false" label="MinSize" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_dictionary_1_0" localname="maxValue" mandatory="false" unique="false" hidden="false" label="MaxValue" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_dictionary_1_0" localname="order" mandatory="false" unique="false" hidden="false" label="Order" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_dictionary_1_0" localname="sort" mandatory="false" unique="false" hidden="false" label="Sort" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="defaultValue" mandatory="false" unique="false" hidden="false" label="DefaultValue" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_dictionary_1_0" localname="values" label="Values" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_dictionary_1_0" localname="value"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_dictionary_1_0" localname="relation" label="Model Relation" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>Data Dictionary</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="qname" mandatory="false" unique="false" hidden="false" label="Qname" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="mapping" mandatory="false" unique="false" hidden="false" label="Mapping" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="label" mandatory="false" unique="false" hidden="false" label="Label" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="view" mandatory="false" unique="false" hidden="false" label="View" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="startName" mandatory="false" unique="false" hidden="false" label="StartName" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="endName" mandatory="false" unique="false" hidden="false" label="EndName" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_dictionary_1_0" localname="direction" mandatory="false" unique="false" hidden="false" label="Direction" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_dictionary_1_0" localname="many" mandatory="false" unique="false" hidden="false" label="Many" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_dictionary_1_0" localname="cascade" mandatory="false" unique="false" hidden="false" label="Cascade" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_dictionary_1_0" localname="hidden" mandatory="false" unique="false" hidden="false" label="Hidden" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_dictionary_1_0" localname="fields" label="Fields" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_dictionary_1_0" localname="field"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_dictionary_1_0" localname="value" label="Model Value" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>Data Dictionary</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="category" mandatory="false" unique="false" hidden="false" label="Category" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_dictionary_1_0" localname="label" mandatory="false" unique="false" hidden="false" label="Label" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+	</models>
+</dictionary>

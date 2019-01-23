@@ -1,0 +1,175 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+	<div th:fragment="content">
+		<div class="collection-detail">
+			<div class="collection-detail-left">
+				<div th:if="${result.title != null}">
+					<div class="collection-detail-title">
+						<span th:text="${result.title}" escapeXml="false" />
+					</div>
+				</div>
+				
+				<div th:if="${not #lists.isEmpty(result.nativeContent)}">
+					<div class="collection-native-value">
+						<span th:text="${result.nativeContent}" escapeXml="false" />
+					</div>
+				</div>
+				
+				<div th:if="${result.collectionName != null && displayCollectionName != 'false'}">
+					<div>
+						<div class="collection-detail-label" style="">Collection:</div>
+						<div class="collection-detail-value">
+							<span th:text="${result.collectionName}" escapeXml="false" />
+						</div>
+					</div>
+				</div>
+					
+				<div th:if="${missingImage != null && !(result.description == null && displayDescription != 'false') && !(result.summary != null && displaySummary != 'false')}">
+					<div style="width:100%;text-align:center;padding:40px 0;">
+						<img src="<span th:text="${missingImage}" />" />
+					</div>
+				</div>		
+				
+				<div th:if="${result.dateExpression != null && displayDateExpression != 'false'}">
+					<div class="collection-detail-label" style="">Date:</div>
+					<div class="collection-detail-value">
+						<span th:text="${result.dateExpression}" escapeXml="false" />
+					</div>
+				</div>
+				
+				<div th:if="${result.contentType != null && displayContentType != 'false'}">
+					<div class="collection-detail-label" style="">Content Type:</div>
+					<div class="collection-detail-value">
+						<span th:text="${result.contentType}" escapeXml="false" />
+					</div>
+				</div>
+				
+				<div th:if="${result.language != null && displayLanguage != 'false'}">
+					<div class="collection-detail-label" style="">Language:</div>
+					<div class="collection-detail-value">
+						<span th:text="${result.language}" escapeXml="false" />
+					</div>
+				</div>
+				
+				<div th:if="${result.container != null && displayContainer != 'false'}">
+					<div>
+						<div class="collection-detail-label" style="">Container:</div>
+						<div class="collection-detail-value">
+							<span th:text="${result.container}" escapeXml="false" />
+						</div>
+					</div>
+				</div>
+				
+				<div th:if="${result.description != null && displayDescription != 'false'}">
+					<div>
+						<div class="collection-detail-label" style="">Description:</div>
+						<div class="collection-detail-value">
+							<span th:text="${result.description}" escapeXml="false" />
+						</div>
+					</div>
+				</div>
+				
+				<div th:if="${result.summary != null && displaySummary != 'false'}">
+					<div>
+						<div class="collection-detail-label" style="">Summary:</div>
+						<div class="collection-detail-value">
+							<span th:text="${result.summary}" escapeXml="false" />
+						</div>
+					</div>
+				</div>
+				
+				<div th:if="${not empty result.notes}">
+					<table>	
+						<th:block th:each="note,nstatus : ${result.notes}">						
+							<tr><td class="collection-detail-label" style="width:100%;margin-top:15px;"><span th:text="${note.type}" />:</td></tr>
+							<tr><td class="relation subject" style="padding:0 15px;">
+								<span class="collection-detail-value"><span th:text="${note.content}" escapeXml="false" /></span>
+							</td></tr>
+						</th:block>
+					</table>
+				</div>
+				<div th:if="${not empty result.people}">
+					<table>
+					<tr><td class="collection-detail-label" style="width:100%;margin-top:15px;">Associated Personal Entities:</td></tr>
+					<th:block th:each="person,nstatus : ${result.people}">
+						<tr><td class="relation person" style="padding:0 15px;">
+							<span class="collection-detail-value">
+								<span th:text="${name.title}" /> 
+								<div th:if="${name.function != null}">
+									(<b><span th:text="${name.function}" /></b>)
+								</div>
+							</span>
+						</td></tr>
+					</th:block>
+					</table>
+				</div>
+				<div th:if="${not empty result.corporations}">
+					<table>
+					<tr><td class="collection-detail-label" style="width:100%;margin-top:15px;">Associated Corporate Entities:</td></tr>
+					<th:block th:each="name,nstatus : ${result.corporations}">					
+						<tr><td class="relation corporation" style="padding:0 15px;">
+							<span class="collection-detail-value">
+								<span th:text="${name.title}" /> 
+								<div th:if="${name.function != null}">
+									(<b><span th:text="${name.function}" /></b>)
+								</div>
+							</span>
+						</td></tr>
+					</th:block>
+					</table>
+				</div>
+				<div th:if="${not empty result.subjects}">
+					<table>
+					<tr><td class="collection-detail-label" style="width:100%;margin-top:15px;">Associated Subjects:</td></tr>
+					<th:block th:each="subject,nstatus : ${result.subjects}">	
+						<tr><td class="relation subject" style="padding:0 15px;">
+							<span class="collection-detail-value"><span th:text="${subject.title}" /></span>
+						</td></tr>
+					</th:block>
+					</table>
+				</div>
+				<div th:if="${not empty result.path}">
+					<table>
+						<tr><td class="collection-detail-label" style="width:100%;margin-top:15px;">Keywords:</td></tr>
+						<th:block th:each="node,nstatus : ${result.path}">
+							<tr><td class="relation subject" style="padding:0 15px;">
+								<span class="collection-detail-value"><span th:text="${node.title}" escapeXml="false" /></span>
+							</td></tr>
+						</th:block>
+					</table>
+				</div>
+			</div>
+			<div class="collection-detail-right">
+			<div th:if="${result.contentType != null && result.contentType != 'Video' && result.contentType != 'Audio'}">
+				<div id="flippingbook-container" th:with="linked=false">
+		      	<div th:if="${not #lists.isEmpty(result.weblinks)}">
+					<th:block th:each="file,nstatus : ${result.weblinks}" th:with="linked=true">
+						<div th:if="${file.type == 'flippingbook'}">
+							<iframe style="border:0px;width:490px;height:700px;overfow:hidden;" scrolling="no" src="<span th:text="${file.url}" />"></iframe>
+						</div>
+						<div th:if="${file.type == 'rendition'}">
+							<img style="border:0px;width:490px;" src="<span th:text="${file.url}" />" />
+						</div>
+						<div th:if="${file.type == 'partner'}">
+							<a href="<span th:text="${file.url}" />" target="_blank">
+								<img src="<%=themeImagePath %>/collections/<span th:text="${result.collectionId}" />_large.jpg" alt="<span th:text="${result.collectionName}" escapeXml="false" />" />
+							</a>
+						</div>
+					</th:block>
+				</div>
+		      	<div th:if="${not linked}">
+		      		<div th:if="${not #lists.isEmpty(result.collectionUrl)}">
+			      		<a href="<span th:text="${result.collectionUrl}" />" target="_blank">
+			      			<img src="<%=themeImagePath %>/collections/<span th:text="${result.collectionId}" />_large.jpg" alt="<span th:text="${result.collectionName}" escapeXml="false" />" />
+			      		</a>
+			      	</div>
+			      	<div th:if="${result.collectionUrl != null}">
+			      		<img src="<%=themeImagePath %>/collections/<span th:text="${result.collectionId}" />_large.jpg" alt="<span th:text="${result.collectionName}" escapeXml="false" />" />
+			      	</div>
+		      	</div>
+		      </div>
+			</div>
+			</div>
+		</div>
+	</div>
+</html>

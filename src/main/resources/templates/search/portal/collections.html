@@ -1,0 +1,67 @@
+<div id="archive-search-results">
+	<table style="width:100%;">
+		<tr>
+			<td>
+				<table class="archive-search-tools">
+					<tbody>					
+						<tr>
+							<td class="archive-results-summary">
+								<div th:if="${not #lists.isEmpty(resultset.results)}">								
+									<div th:if="${resultset.start != 0}">
+										Results <b><span th:text="${resultset.start}" /> - <span th:text="${resultset.end}" /></b> of <b><span th:text="${resultset.resultCount}" /></b> for <b><span th:text="${resultset.lastBreadcrumb.name}" /></b>
+									</div>
+									<div th:if="${resultset.start == 0}">
+										Results <b>1 - <span th:text="${resultset.end}" /></b> of <b><span th:text="${resultset.resultCount}" /></b> for <b><span th:text="${resultset.lastBreadcrumb.name}" /></b>
+									</div>
+								</div>
+								<div th:if="${#lists.isEmpty(resultset.results)}">
+									No Results for <b><span th:text="${resultset.lastBreadcrumb.name}" /></b>
+								</div>
+							</td>					
+						</tr>					
+					</tbody>
+				</table>
+	
+				<table class="archive-results-table">
+					<tbody>
+						<th:block th:each="result : ${resultset.results}">						
+							<tr>						
+								<td class="archive-results-result">
+									<div class="archive-results-title">
+										<div th:if="${result.url != null}">
+											<a href="${result.url}">
+										</div>
+										<div th:if="${result.url == null}">
+											<a th:href="@{'/collections/collection'(id=${result.id})}">
+										</div>
+											<span th:text="${result.name}" />
+										</a>
+										<div th:if="${result.dateExpression != null}">
+											<span th:text="${result.dateExpression}" />
+										</div>																	
+									</div>									
+								</td>
+							</tr>
+						</th:block>
+					</tbody>
+				</table>
+	
+				<table class="archive-results-paging">
+					<tbody><tr>
+						<td></td>
+						<td class="tools_right">
+							<th:block th:each="page : ${resultset.paging}">
+								<span th:if="${page.name == currentPage}">
+									<b><span th:text="${page.name}" /></b>
+								</span>
+								<span th:if="${page.name != currentPage}">
+									<a th:href="@{${baseUrl}(${page.query},page=${page.page},size=${page.size},sort=${page.sort})}"><span th:text="${page.name}"></span></a>
+								</span>
+							</th:block>	
+						</td>
+					</tr></tbody>
+				</table>
+			</td>		
+		</tr>
+	</table>
+</div>

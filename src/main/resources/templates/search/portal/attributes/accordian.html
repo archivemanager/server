@@ -1,0 +1,22 @@
+<div id="sub-section2" class="yui-skin-sam">
+	<ul id="mymenu" class="yui-accordionview" role="tree">
+	<th:block th:each="attribute,astatus : ${attributes}">
+		<th:block th:if="${attribute.display}">
+			<li class="yui-accordion-panel" role="presentation">
+				<a id="mymenu-1-label" href="#toggle" tabindex="0" class="yui-accordion-toggle" role="treeitem" style="color:#FFF;">
+					<span th:text="${attribute.name}" /> (<span th:text="${attribute.count}" />)<span class="indicator"></span>
+				</a>
+				<div class="yui-accordion-content hidden">
+					<ul class="submenu">
+						<th:block th:each="value,vstatus : ${attribute.values}">
+							<li>
+								<a th:href="@{${baseUrl}(query=${value.query})}"><span th:text="${value.name}" /> (<span th:text="${value.count}" />)</a>
+							</li>
+						</th:block>
+					</ul>
+				</div>
+			</li>
+		</th:block>
+	</th:block>
+	</ul>
+</div>

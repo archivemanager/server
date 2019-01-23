@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>		
+		<div th:replace="fragments/header :: javascript"/>		
+		<script type="text/javascript" src="/js/dictionary.js"></script>
+		<style>
+			.accordion-collapse {float: right;}
+			.textbox-label{font-weight:bold;width:100px;}		
+			.tabs-panels{border-width:0;}
+			.tabs-header{display:none;}
+			.tabs-wrap{height:0;}
+			.tree-folder {background: none;width:18px;}
+			.tree-folder-open {background: none;width:18px;}
+			.tree-file {background: none;width:18px;}
+			#left-layout .easyui-panel{border: 0px solid #ccc;border-radius: 0px;box-shadow: 0 0px 0px #aaaaaa;}
+		</style>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<table style="width:100%;height:100%;">
+			<tr>
+				<td style="vertical-align:top;height:80px;" colspan="2"><div th:replace="fragments/header :: content" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top;">
+					<div th:replace="fragments/menus :: main" />
+				</td>
+				<td style="width:100%;vertical-align:top;">
+					<div id="mainLayout" class="easyui-layout" style="max-width:1200px;" fit="true">
+						<div id="north-layout" style="height:35px;" data-options="region:'north'">
+							<div style="float:left;width:600px;">
+							   	<a id="add-dictionary-button" href="javascript:void(0)" class="easyui-linkbutton" onclick="openObjectWindow('dictionary')"><i class="fas fa-plus-circle"></i>Add Dictionary</a>
+							   	<a id="add-model-button" href="javascript:void(0)" class="easyui-linkbutton" style="display:none;" onclick="openObjectWindow('model')"><i class="fas fa-plus-circle"></i>Add Model</a>
+							   	<a id="add-field-button" href="javascript:void(0)" class="easyui-linkbutton" style="display:none;" onclick="openObjectWindow('field')"><i class="fas fa-plus-circle"></i>Add Field</a>
+							   	<a id="add-relation-button" href="javascript:void(0)" class="easyui-linkbutton" style="display:none;" onclick="openObjectWindow('relation')"><i class="fas fa-plus-circle"></i>Add Relation</a>
+							   	<a id="rem-button" href="javascript:void(0)" class="easyui-linkbutton" style="display:none;" plain="true" onclick="doRemoveSelection()"><i class="fas fa-minus-circle"></i>Remove</a>
+							</div>
+							<div style="float:right;text-align:right;">
+								<a id="save-button" href="javascript:void(0)" class="easyui-linkbutton" onclick="doSaveObject()"><i class="fas fa-save"></i>Save</a>
+							</div>
+						</div>   
+						<div id="left-layout" style="width:400px;" data-options="region:'west',collapsible:false,split:true">    	
+						   	<div id="repository-tree-panel" title="" class="easyui-panel">	    		
+							    <ul id="repositoryTree" class="easyui-tree" style="width:100%;height:100%;"></ul>
+							</div>					
+						</div>
+							
+						<div id="tabs1" class="easyui-panel" style="width:100%;" data-options="region:'center'">
+							<div id="application-body" class="easyui-tabs" title=" " data-options="fit:true">
+						    	<div id="intro-screen" title="intro-screen" class="screen" style="text-align:center;">
+						    		<img src="/images/logo/ArchiveManager450_495.png" />
+						    	</div>
+						    	<div id="form-screen" title="form-screen" class="screen">
+								    <form id="form" style="display: table;width:650px;" method="post" enctype="multipart/form-data"></form>
+								    <div style="margin:35px 65px;">
+								    	<div id="valueGridPanel" style="height:100%;">
+									    	<div style="float:left;width:40%;">
+									    		<span style="width:130px;font-size:22px;font-weight:bold;line-height:30px;">Field Values</span>
+									    	</div>
+									    	<div style="float:right;width:40%;">
+									    		<a id="add-value-button" href="javascript:void(0)" class="easyui-linkbutton" style="float:right;" onclick="openValueWindow()"><i class="fas fa-plus-circle"></i>Add Field Value</a>
+									    	</div>
+									    	<div style="height:400px;width:100%;">
+									    		<table id="valueGrid" style="height:100%;"></table>
+									    	</div>
+									    </div>	    	
+								    </div>  
+								</div>																    	
+						    </div>
+						</div>
+					</div>					
+					<div id="windows">
+						<div id="add-value-window" class="easyui-dialog" style="width:400px;min-height:200px;" title="Add Value" closed="true" buttons="#add-value-window-buttons">
+							<form id="add-value-window-form" method="post" style="margin:0;padding:20px;">
+								<div class="form-field">
+								   	<input id="add-value-label" name="name" class="easyui-textbox" label="Label:" labelPosition="top"  style="width:100%;"/>
+								</div>
+								<div id="add-text-version-value-pane" class="form-field">
+								   	<input id="add-text-value-value" name="value" class="easyui-textbox" label="Value:" labelPosition="top" style="width:100%;"/>
+								</div>								
+							</form>
+							<div id="add-value-window-buttons">
+						   		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="doAddValue()" style="width:90px">Save</a>
+						   		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#add-value-window').dialog('close')" style="width:90px">Cancel</a>
+							</div>
+						</div>
+						<div id="add-object-window" class="easyui-dialog" style="width:400px;min-height:200px;" title="Add Model Object" closed="true" buttons="#add-object-window-buttons">
+							<form id="add-object-window-form" method="post" style="margin:0;padding:20px;">
+								<div class="form-field">
+								   	<input id="add-object-qname" name="qname" class="easyui-textbox" label="QName" labelPosition="top"  style="width:100%;"/>
+								</div>
+								<div class="form-field">
+								   	<input id="add-object-name" name="name" class="easyui-textbox" label="Name" labelPosition="top" style="width:100%;"/>
+								</div>
+								<div class="form-field">
+								   	<input id="add-object-description" name="description" class="easyui-textbox" label="Description" labelPosition="top" style="width:100%;"/>
+								</div>								
+							</form>
+							<div id="add-object-window-buttons">
+						   		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="doAddObject()" style="width:90px">Save</a>
+						   		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#add-object-window').dialog('close')" style="width:90px">Cancel</a>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>			
+		</table>
+	</body>
+</html>

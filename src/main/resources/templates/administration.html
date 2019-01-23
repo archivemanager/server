@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>		
+		<div th:replace="fragments/header :: javascript"/>
+		<script type="text/javascript" src="/js/administration.js"></script>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<table style="width:100%;height:100%;">
+			<tr>
+				<td style="vertical-align:top;height:80px;" colspan="2"><div th:replace="fragments/header :: content" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top;">
+					<div th:replace="fragments/menus :: main" />
+				</td>
+				<td style="width:100%;vertical-align:top;">
+					<div id="mainLayout">	
+						<div class="rounded-border" style="margin:0 auto;margin-top:150px;">
+							<img src="/images/logo/ArchiveManager570.png" style="width:450px;padding:20px;" />
+							
+							<div id="admin-menu" style="width:100%;height:150px;padding:10px;">
+								<div style="width:8%;float:left;">&nbsp;</div>
+								<div style="width:30%;float:left;">		
+									<div class="title">Administration</div>
+									<ul class="fa-ul" style="width:120px;">										
+										<li class="menu-row"><a href="/app/dictionary"><span class="fa-li"><i class="fas fa-book-open" style="font-size:16px;"></i></span>Dictionaries</a></li>					
+										<li class="menu-row"><a href="/app/indexing"><span class="fa-li"><i class="fas fa-align-justify" style="font-size:16px;"></i></span>Indexing</a></li>
+										<li class="menu-row"><a href="/app/data"><span class="fa-li"><i class="fas fa-database" style="font-size:16px;"></i></span>Data</a></li>
+										<li class="menu-row"><a href="/app/users"><span class="fa-li"><i class="fas fa-user-alt" style="font-size:16px;"></i></span>Users</a></li>							
+									</ul>
+								</div>
+									
+								<div style="width:30%;float:left;">
+									<div class="title">Applications</div>
+									<ul class="fa-ul" style="width:120px;">
+										<li class="menu-row">
+											<a href="/app/analytics"><span class="fa-li"><i class="fas fa-chart-bar" style="font-size:16px;"></i></span>Analytics</a>
+										</li>	
+										<li class="menu-row">
+											<a href="/swagger-ui.html"><span class="fa-li"><img style="width:16px;height:16px;" src="/images/icons/swagger.png" /></span>Swagger</a>
+										</li>
+										<li class="menu-row"><a target="_blank" th:href="${kibanaUrl}">
+											<span class="fa-li"><img style="width:16px;height:16px;" src="/images/icons/kibana.png" /></span>Kibana <i class="fas fa-external-link-alt" style="font-size:12px;"></i></a></li>		
+										<li class="menu-row"><a target="_blank" th:href="${neo4jUrl}">
+											<span class="fa-li"><i class="fas fa-database" style="font-size:16px;"></i></span>Neo4j <i class="fas fa-external-link-alt" style="font-size:12px;"></i></a>
+										</li>
+									</ul>
+								</div>
+								
+								<div style="width:30%;float:left;">
+									<div class="title">Documentation</div>
+									<ul class="fa-ul" style="width:120px;">
+										<li class="menu-row">
+											<a href="/documentation/javadoc"><span class="fa-li"><i class="fas fa-book" style="font-size:16px;"></i></span>API Javadocs</a>
+										</li>
+										<li class="menu-row">
+											<a href="/documentation/admin-applications"><span class="fa-li"><i class="fas fa-book" style="font-size:16px;"></i></span>Administration</a>					
+										</li>
+										<li class="menu-row">
+											<a href="/documentation/development"><span class="fa-li"><i class="fas fa-book" style="font-size:16px;"></i></span>Development</a>					
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>			
+		</table>
+	</body>
+</html>

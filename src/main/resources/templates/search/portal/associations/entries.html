@@ -1,0 +1,23 @@
+
+<div th:if="${not #lists.isEmpty(result.entries)}">
+	<div class="associated-entries">
+		<div class="associated-entries-title">Notable Figures</div>
+		<table class="associated-entries-list">
+			<tbody>
+				<th:block th:each="entry,nstatus : ${result.entries}">
+				<tr>
+					<td class="associated-entry-title">
+						<span th:text="${nstatus.index + 1}" />. 
+						<span th:text="${entry.collection}" />
+					</td>
+				</tr>
+				<tr>
+					<td class="associated-entry-description">
+						<span th:text="${entry.description}" />
+					</td>
+				</tr>
+				</th:block>
+			</tbody>
+		</table>
+	</div>
+</div>

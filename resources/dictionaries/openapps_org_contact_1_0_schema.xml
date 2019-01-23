@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<dictionary qname="openapps_org_contact_1_0_schema" name="Contact Dictionary" label="" description="people and addresses">
+	<models>
+		<model namespace="openapps_org_contact_1_0" localname="address" label="" stored="true" searchable="false">
+			<description>Address</description>
+			<properties>
+				<property type="boolean" namespace="openapps_org_contact_1_0" localname="primary" mandatory="false" unique="false" hidden="false" label="Primary" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="zip" mandatory="false" unique="false" hidden="false" label="Zip" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="country" mandatory="false" unique="false" hidden="false" label="Country" searchable="false">
+					<values>
+						<value value="Poland" label="Poland" />
+						<value value="Ireland" label="Ireland" />
+						<value value="Spain" label="Spain" />
+						<value value="Italy" label="Italy" />
+						<value value="Germany" label="Germany" />
+						<value value="France" label="France" />
+						<value value="United Kingdom" label="United Kingdom" />
+						<value value="United States" label="United States" />
+					</values>
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="state" mandatory="false" unique="false" hidden="false" label="State" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="city" mandatory="false" unique="false" hidden="false" label="City" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="address2" mandatory="false" unique="false" hidden="false" label="Address2" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="address1" mandatory="false" unique="false" hidden="false" label="Address1" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_contact_1_0" localname="addresses" label="Addresses" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_contact_1_0" localname="address"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_contact_1_0" localname="contact" label="" stored="true" searchable="false">
+			<description>Contact</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="description" mandatory="false" unique="false" hidden="false" label="Description" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_contact_1_0" localname="last_wrote" mandatory="false" unique="false" hidden="false" label="Last_wrote" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_contact_1_0" localname="last_ship" mandatory="false" unique="false" hidden="false" label="Last_ship" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="dateList" mandatory="false" unique="false" hidden="false" label="DateList" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="alternate_addresses" mandatory="false" unique="false" hidden="false" label="Alternate_addresses" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="note" mandatory="false" unique="false" hidden="false" label="Note" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="greeting" mandatory="false" unique="false" hidden="false" label="Greeting" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="status" mandatory="false" unique="false" hidden="false" label="Status" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="fax1" mandatory="false" unique="false" hidden="false" label="Fax1" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="first_name" mandatory="false" unique="false" hidden="false" label="First_name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="last_name" mandatory="false" unique="false" hidden="false" label="Last_name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="birth_date" mandatory="false" unique="false" hidden="false" label="Birth_date" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="death_date" mandatory="false" unique="false" hidden="false" label="Death_date" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="notes" mandatory="false" unique="false" hidden="false" label="Notes" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="street" mandatory="false" unique="false" hidden="false" label="Street" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="country" mandatory="false" unique="false" hidden="false" label="Country" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_contact_1_0" localname="last_update" mandatory="false" unique="false" hidden="false" label="Last_update" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_contact_1_0" localname="addresses" label="Addresses" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_contact_1_0" localname="address"></target>
+				</association>
+				<association namespace="openapps_org_system_1_0" localname="notes" label="Notes" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_system_1_0" localname="note"></target>
+				</association>
+				<association namespace="openapps_org_contact_1_0" localname="webs" label="Webs" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_contact_1_0" localname="web"></target>
+				</association>
+				<association namespace="openapps_org_contact_1_0" localname="feeds" label="Feeds" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_contact_1_0" localname="feed"></target>
+				</association>
+				<association namespace="openapps_org_contact_1_0" localname="emails" label="Emails" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_contact_1_0" localname="email"></target>
+				</association>
+				<association namespace="openapps_org_contact_1_0" localname="phones" label="Phones" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_contact_1_0" localname="phone"></target>
+				</association>
+				<association namespace="openapps_org_contact_1_0" localname="contacts" label="Contacts" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_contact_1_0" localname="contact"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_contact_1_0" localname="email" label="" stored="true" searchable="false">
+			<description>EMail</description>
+			<properties>
+				<property type="boolean" namespace="openapps_org_contact_1_0" localname="primary" mandatory="false" unique="false" hidden="false" label="Primary" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="address" mandatory="false" unique="false" hidden="false" label="Address" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_contact_1_0" localname="feed" label="" stored="true" searchable="false">
+			<description>Feed</description>
+			<properties>
+				<property type="boolean" namespace="openapps_org_contact_1_0" localname="primary" mandatory="false" unique="false" hidden="false" label="Primary" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="address" mandatory="false" unique="false" hidden="false" label="Address" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_contact_1_0" localname="individual" label="" stored="true" searchable="false">
+			<parent namespace="openapps_org_contact_1_0" localname="contact"/>
+			<description>Individual</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="suffix" mandatory="false" unique="false" hidden="false" label="Suffix" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="role" mandatory="false" unique="false" hidden="false" label="Role" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="nick_name" mandatory="false" unique="false" hidden="false" label="Nick_name" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_contact_1_0" localname="death_date" mandatory="false" unique="false" hidden="false" label="Death_date" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_contact_1_0" localname="birth_date" mandatory="false" unique="false" hidden="false" label="Birth_date" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="spouse" mandatory="false" unique="false" hidden="false" label="Spouse" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="alt_salutation" mandatory="false" unique="false" hidden="false" label="Alt_salutation" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="salutation" mandatory="false" unique="false" hidden="false" label="Salutation" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="greeting" mandatory="false" unique="false" hidden="false" label="Greeting" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_contact_1_0" localname="last_update" mandatory="false" unique="false" hidden="false" label="Last_update" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="last_name" mandatory="false" unique="false" hidden="false" label="Last_name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="middle_name" mandatory="false" unique="false" hidden="false" label="Middle_name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="first_name" mandatory="false" unique="false" hidden="false" label="First_name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="biography" mandatory="false" unique="false" hidden="false" label="Biography" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="bio_sources" mandatory="false" unique="false" hidden="false" label="Bio_sources" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_contact_1_0" localname="organization" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_contact_1_0" localname="contact"/>
+			<description>Organization</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="industry" mandatory="false" unique="false" hidden="false" label="Industry" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="classification" mandatory="false" unique="false" hidden="false" label="Classification" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_contact_1_0" localname="phone" label="" stored="true" searchable="false">
+			<description>Phone</description>
+			<properties>
+				<property type="boolean" namespace="openapps_org_contact_1_0" localname="primary" mandatory="false" unique="false" hidden="false" label="Primary" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="number" mandatory="false" unique="false" hidden="false" label="Number" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_contact_1_0" localname="web" label="" stored="true" searchable="false">
+			<description>Web</description>
+			<properties>
+				<property type="boolean" namespace="openapps_org_contact_1_0" localname="primary" mandatory="false" unique="false" hidden="false" label="Primary" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_contact_1_0" localname="address" mandatory="false" unique="false" hidden="false" label="Address" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+	</models>
+</dictionary>

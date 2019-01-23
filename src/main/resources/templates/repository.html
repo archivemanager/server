@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>		
+		<div th:replace="fragments/header :: javascript"/>
+		<link rel="stylesheet" type="text/css" href="/css/repository.css" />
+
+		<script type="text/javascript" src="/js/views/assocView.js"></script>
+		<script type="text/javascript" src="/js/views/expandView.js"></script>
+		<script type="text/javascript" src="/js/library/archivemanager.js"></script>
+		<script type="text/javascript" src="/js/repository.js"></script>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<table style="width:100%;height:100%;">
+			<tr>
+				<td style="vertical-align:top;height:80px;" colspan="2"><div th:replace="fragments/header :: content" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top;">
+					<div th:replace="fragments/menus :: main" />
+				</td>
+				<td style="width:100%;vertical-align:top;">
+					<div id="mainLayout" class="easyui-layout" fit="true">
+						<div id="north-layout" style="height:35px;" data-options="region:'north'">
+							<div style="float:left;width:400px;">
+							   	<a id="add-repository-button" href="javascript:void(0)" class="easyui-linkbutton" onclick="openEntityWindow(null,'openapps_org_repository_1_0_repository', null)"><i class="fas fa-plus-circle"></i>Add Repository</a>
+							   	<a id="add-collection-button" href="javascript:void(0)" class="easyui-linkbutton" style="display:none;" onclick="openEntityWindow(null,'openapps_org_repository_1_0_collection', null)"><i class="fas fa-plus-circle"></i>Add Collection</a>
+							   	<a id="add-category-button" href="javascript:void(0)" class="easyui-linkbutton" style="display:none;" onclick="openEntityWindow(null,'openapps_org_repository_1_0_category', null)"><i class="fas fa-plus-circle"></i>Add Category</a>
+							   	<a id="add-item-button" href="javascript:void(0)" class="easyui-linkbutton" style="display:none;" onclick="openEntityWindow(null,'openapps_org_repository_1_0_item', null)"><i class="fas fa-plus-circle"></i>Add Item</a>
+							   	<a id="edit-button" href="javascript:void(0)" class="easyui-linkbutton" style="display:none;" plain="true" onclick="navigate('collection')"><i class="fas fa-edit"></i>Edit</a>
+							   	<a id="rem-button" href="javascript:void(0)" class="easyui-linkbutton" style="display:none;" plain="true" onclick="removeEntity()"><i class="fas fa-minus-circle"></i>Remove</a>
+							</div>
+							<div style="float:right;text-align:right;">
+								<a id="import-button" href="javascript:void(0)" class="easyui-linkbutton" style="display:none;" onclick="uploadCollection()"><i class="fas fa-upload"></i>Upload</a>
+								<a id="save-button" href="javascript:void(0)" class="easyui-linkbutton" onclick="updateEntity('entityForm')"><i class="fas fa-save"></i>Save</a>
+								<input id="query" class="easyui-textbox" style="width:335px;border:1px solid #ccc" onkeypress="handleKeyPressRepositorySearch(event)">
+						      	<a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch();">Search</a>
+							</div>
+						</div>   
+					    <div id="left-layout" style="width:400px;" data-options="region:'west',collapsible:false,split:true">    	
+					    	<div id="collection-tree-navigation" class="easyui-tabs" style="height:100%;" title=" " data-options="fit:true">
+						    	<div id="repository-tree-panel" title="repository-tree-panel" class="easyui-panel">	    		
+								    <ul id="repositoryTree" class="easyui-tree" style="width:100%;height:100%;"></ul>
+								</div>
+						    	<div id="collection-tree-panel" title="collection-tree-panel" class="easyui-panel">
+						    		<a id="back-button" style="line-height:25px;color:black;margin-left:5px;" href="javascript:void(0)" onclick="navigate('repository');"><i class="fas fa-level-up-alt"></i>back</a>
+							    	<ul id="collectionTree" class="easyui-tree" style="width:100%;height:100%;"></ul>
+								</div>			
+							</div>
+					    </div>
+						
+						<div id="tabs1" class="easyui-panel" style="width:100%;" data-options="region:'center'">
+							<div id="application-body" class="easyui-tabs" title=" " data-options="fit:true">
+						    	<div id="intro-screen" title="intro-screen" class="screen" style="text-align:center;">
+						    		<img src="/images/logo/ArchiveManager450_495.png" />
+						    	</div>
+						    	<div id="form-screen" title="form-screen" class="screen">
+								    <form id="entityForm" method="post" enctype="multipart/form-data">
+								    	<div class="form-row" style="min-height:25px;">
+								            <div class="form-row-col1">
+									        	<div style="float:left;margin-top:3px;">
+									                <label class="textbox-label textbox-label-top" style="text-align:left;float:left;margin-right:5px;min-width:20px;">ID:</label>
+									                <label id="label-id" class="textbox-label textbox-label-top" style="text-align:left;float:left;min-width:115px;"></label>
+									            </div>
+									       	</div>
+									        <div class="form-row-col2">
+									            <div style="float:right;margin-top:3px;">
+									                <label class="textbox-label textbox-label-top" style="text-align:left;float:left;margin-right:5px;min-width:90px;">Last Update:</label>
+									                <label id="label-update" class="textbox-label textbox-label-top" style="text-align:left;float:left;min-width:110px;"></label>
+									            </div>
+									        </div>
+								        </div>			        
+								        <div id="entityFields"></div>
+									</form>        
+								</div>
+								<div id="upload-screen" title="upload-screen" class="screen">
+									<div id="importLayout" class="easyui-layout" fit="true">										
+										<div id="import-north-layout" style="height:190px;" data-options="region:'north'">
+											<div style="margin:10px;font-size:24px;font-weight:bold;"><i class="fas fa-database"></i>COLLECTION IMPORT</div>											
+											<form id="upload-form" method="post">												
+												<div style="max-width:400px;">
+													<div class="form-row">
+														<input name="file" class="easyui-filebox" label="Excel Upload" labelPosition="top" data-options="prompt:'Choose another file...'" style="width:98%" />														
+													</div>
+													<div class="form-row">
+														<a href="#" class="easyui-linkbutton" onclick="doCollectionUpload();">Upload</a>
+														<a id="save-import-button" href="#" class="easyui-linkbutton" style="display:none;" onclick="doSaveImport();">Save</a>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div id="import-south-layout" style="padding:10px;" data-options="region:'center'">
+											<div id="importBodyLayout" class="easyui-layout" fit="true">
+												<div id="import-body-west-layout" style="min-width:350px;" data-options="region:'west'">
+													<div id="importNavigation"></div>
+												</div>
+												<div id="import-body-center-layout" data-options="region:'center',split:true">
+													<div id="importDisplay" style="height:100%;"></div>
+												</div>
+											</div>
+										</div>
+									</div>							
+								</div>	    	
+						    </div>
+					    </div>
+					    <div id="tabs2" class="easyui-panel" style="width:400px;" data-options="region:'east',collapsible:false,split:true">
+						    <div id="application-properties" class="easyui-tabs" title=" " data-options="fit:true">
+						    	<div id="model-associations" title="model-associations" class="easyui-accordion" data-options="fit:true"></div>
+						    </div>
+					    </div>
+					</div>
+					<div id="windows"></div>
+				</td>
+			</tr>			
+		</table>
+	</body>
+</html>

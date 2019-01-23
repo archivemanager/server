@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>		
+		<div th:replace="fragments/header :: javascript"/>
+		<link rel="stylesheet" type="text/css" href="/css/data.css" />
+
+		<script type="text/javascript" src="/js/views/dataView.js"></script>
+		<script type="text/javascript" src="/js/library/archivemanager.js"></script>
+		<script type="text/javascript" src="/js/data.js"></script>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<table style="width:100%;height:100%;">
+			<tr>
+				<td style="vertical-align:top;height:80px;" colspan="2"><div th:replace="fragments/header :: content" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top;">
+					<div th:replace="fragments/menus :: main" />
+				</td>
+				<td style="width:100%;vertical-align:top;">
+					<div id="reporting" class="easyui-layout" fit="true">
+						<div id="left-layout" style="width:370px;border-width:0;" data-options="region:'west',collapsible:false">		
+							<div class="rounded-border" style="width:340px;padding-left:15px;">
+								<div style="font-size:24px;font-weight:bold;margin-top:20px;"><i class="fas fa-database"></i>DATA ADMINISTRATION</div>
+								<div id="report-selection" class="form-row">
+									<select id="reports" class="easyui-combobox" label="Report" labelPosition="top" editable="false">
+										<option th:each="report:${reports}" th:value="${report.id}" th:text="${report.name}" th:selected="${report.id == 'entity_query'}">report</option>
+									</select>
+								</div>
+																
+								<div id="model-selection" class="form-row" style="">
+									<select id="qnames" class="easyui-combobox" label="Data Type" labelPosition="top" editable="false">
+										<option th:each="model:${models}" th:value="${model.id}" th:text="${model.name}">model</option>
+									</select>
+								</div>
+								
+								<hr style="margin:2em 0;" />
+																
+								<div class="form-row" style="margin-bottom:35px;">
+									<input id="query" class="easyui-textbox" style="width:250px;border:1px solid #ccc"/>
+									<a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch();">Search</a>
+								</div>
+								<div id="reportFields"></div>															
+							</div>
+						</div>
+						<div id="center-layout" style="width:100%;" data-options="region:'center'">
+							<div id="reportButtons">
+								<a id="export-button" href="javascript:void(0)" class="easyui-linkbutton" onclick="openExcel()"><i class="fas fa-file-excel"></i>Export Excel</a>
+								<a id="upload-button" href="javascript:void(0)" class="easyui-linkbutton" style="float:right;" onclick="$('#upload-window').window('open')"><i class="fas fa-file-excel"></i>Upload Excel</a>
+								<a id="upload-save" href="#" class="easyui-linkbutton" style="display:none;width:100px;" onclick="doSaveImport();">Save</a>
+							</div>
+							<table id="reporting-grid" style="height:96%;"></table>
+					   	</div>
+					</div>
+					<div id="upload-window" class="easyui-window" style="max-height:350px;width:500px;" data-options="closed:true,collapsible:false,minimizable:false,maximizable:false">
+						<form id="upload-form" method="post" style="padding:5px;">
+							<div class="form-row" style="">
+								<input name="file" class="easyui-filebox" label="Add/Update Excel" labelPosition="top" data-options="prompt:'Choose another file...'" style="width:98%">
+							</div>
+						</form>
+						<div class="form-row" style="padding-left:5px;">
+							<a href="#" class="easyui-linkbutton" style="width:100px;" onclick="doUpload();">Upload</a>							
+						</div>
+					</div>
+				</td>
+			</tr>			
+		</table>
+	</body>
+</html>

@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<dictionary qname="openapps_org_system_1_0_schema" name="System Dictionary" label="" description="user and roles">
+	<models>
+		<model namespace="openapps_org_system_1_0" localname="event" label="" stored="false" searchable="true">
+			<description>null</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="long" namespace="openapps_org_system_1_0" localname="timestamp" mandatory="false" unique="false" hidden="false" label="Timestamp" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_system_1_0" localname="value" mandatory="false" unique="false" hidden="false" label="Value" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_system_1_0" localname="group" label="" stored="true" searchable="false">
+			<description>Group</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="description" mandatory="false" unique="false" hidden="false" label="Description" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_system_1_0" localname="roles" label="Roles" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_system_1_0" localname="role"></target>
+				</association>
+				<association namespace="openapps_org_system_1_0" localname="groups" label="Groups" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_system_1_0" localname="group"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_system_1_0" localname="note" label="" stored="true" searchable="false">
+			<description>Note</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+					<values>
+						<value value="Abstract" label="Abstract" />
+						<value value="Accruals note" label="Accruals note" />
+						<value value="Appraisal note" label="Appraisal note" />
+						<value value="Arrangement note" label="Arrangement note" />
+						<value value="Bibliography" label="Bibliography" />
+						<value value="Biographical/Historical note" label="Biographical/Historical note" />
+						<value value="Chronology" label="Chronology" />
+						<value value="Conditions Governing Access note" label="Conditions Governing Access note" />
+						<value value="Conditions Governing Use note" label="Conditions Governing Use note" />
+						<value value="Custodial History note" label="Custodial History note" />
+						<value value="Dimensions note" label="Dimensions note" />
+						<value value="Existence and Location of Copies note" label="Existence and Location of Copies note" />
+						<value value="Existence and Location of Originals note" label="Existence and Location of Originals note" />
+						<value value="File Plan note" label="File Plan note" />
+						<value value="General note" label="General note" />
+						<value value="General Physical Description note" label="General Physical Description note" />
+						<value value="Immediate Source of Acquisition note" label="Immediate Source of Acquisition note" />
+						<value value="Language of Materials note" label="Language of Materials note" />
+						<value value="Legal Status note" label="Legal Status note" />
+						<value value="Location note" label="Location note" />
+						<value value="Material Specific Details note" label="Material Specific Details note" />
+						<value value="Other Finding Aids note" label="Other Finding Aids note" />
+						<value value="Physical Characteristics and Technical Requirements note" label="Physical Characteristics and Technical Requirements note" />
+						<value value="Physical Facet note" label="Physical Facet note" />
+						<value value="Preferred Citation note" label="Preferred Citation note" />
+						<value value="Processing Information note" label="Processing Information note" />
+						<value value="Related Archival Materials note" label="Related Archival Materials note" />
+						<value value="Scope and Contents note" label="Scope and Contents note" />
+						<value value="Separated Materials note" label="Separated Materials note" />
+						<value value="Table of Contents" label="Table of Contents" />
+						<value value="Text" label="Text" />
+					</values>
+				</property>
+				<property type="longtext" namespace="openapps_org_system_1_0" localname="content" mandatory="false" unique="false" hidden="false" label="Content" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="true" label="Name" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_system_1_0" localname="entity" label="" stored="true" searchable="false">
+			<description>Basic Entity</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="longtext" namespace="openapps_org_system_1_0" localname="description" mandatory="false" unique="false" hidden="false" label="Description" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_system_1_0" localname="permission" label="" stored="true" searchable="false">
+			<description>Permission</description>
+			<properties>
+				<property type="3" namespace="openapps_org_system_1_0" localname="node" mandatory="false" unique="false" hidden="false" label="Node" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_system_1_0" localname="level" mandatory="false" unique="false" hidden="false" label="Level" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_system_1_0" localname="property" label="" stored="true" searchable="false">
+			<description>Property</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="value" mandatory="false" unique="false" hidden="false" label="Value" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_system_1_0" localname="role" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>Role</description>
+			<properties>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_system_1_0" localname="user" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>User</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="organization" mandatory="false" unique="false" hidden="false" label="Organization" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="last_name" mandatory="false" unique="false" hidden="false" label="Last Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="first_name" mandatory="false" unique="false" hidden="false" label="First Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="email" mandatory="false" unique="false" hidden="false" label="Email" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="password" mandatory="false" unique="false" hidden="false" label="Password" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_system_1_0" localname="active" mandatory="false" unique="false" hidden="false" label="Active" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_system_1_0" localname="terms" mandatory="false" unique="false" hidden="false" label="Terms" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_system_1_0" localname="roles" label="Roles" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_system_1_0" localname="role"></target>
+				</association>
+			</associations>
+		</model>
+	</models>
+</dictionary>

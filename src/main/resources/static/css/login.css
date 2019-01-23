@@ -1,0 +1,17 @@
+.container {
+	padding-bottom: 20px;
+	width: 98%;
+	height: 100%;
+	display: table;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.rounded-border {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px #aaaaaa;
+    padding: 10px;
+}
+.row{margin-top:12px;}

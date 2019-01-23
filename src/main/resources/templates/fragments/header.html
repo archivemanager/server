@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<div th:fragment="css">
+		<link rel="stylesheet" type="text/css" href="/easyui-1.6.2/themes/material/easyui.css"/>
+		<link rel="stylesheet" type="text/css" href="/easyui-1.6.2/themes/icon.css"/>
+		<link rel="stylesheet" type="text/css" href="/easyui-1.6.2/themes/color.css"/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/css/archivemanager.css"/>	
+	</div>
+	<div th:fragment="javascript">
+		<script type="text/javascript" src="/easyui-1.6.2/jquery.min.js"></script>
+		<script type="text/javascript" src="/easyui-1.6.2/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="/easyui-1.6.2/easyloader.js"></script>
+		<script type="text/javascript" src="/easyui-1.6.2/ext/datagrid-detailview.js"></script>
+		<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+		
+		<script type="text/javascript" src="/js/library/overrides.js"></script>
+		<script type="text/javascript" src="/js/library/utilities.js"></script>		
+	</div>
+	<div th:fragment="content">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="navbar-brand" style="float:left;">
+						<a href="/"><img style="width:200px;" src="/images/logo/ArchiveManager200.png" /></a>
+					</div>
+					<div style="float:right;">
+						<table>
+							<tr>
+								<td>
+									<div id="header-links">							
+										<a style="float:right;width:45px;text-align:center;margin:5px;" th:href="@{/logout}"><i class="fas fa-sign-out-alt fa-2x" aria-hidden="true"></i>logout</a>
+										<a style="float:right;width:49px;text-align:center;margin:5px;" href="/app/user/profile"><i class="fas fa-id-card fa-2x"></i>profile</a>
+										<a style="float:right;width:46px;text-align:center;margin:5px;" href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i>home </a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div style="display:table;">
+										<div style="float:left;font-size: 12px;height:17px;margin-right:5px;">You are logged in as</div>
+										<div sec:authentication="name" style="float:left;font-size: 12px;height:17px;float:left;margin-right:15px;font-weight:bold;"></div>						
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>					
+				</div>
+			</div>
+		</nav>	
+	</div>	
+</html>

@@ -1,0 +1,19 @@
+<div th:if="${not #lists.isEmpty(result.collections)}">
+	<div class="associated-collections">
+		<div class="associated-collections-title">Collections</div>
+		<table class="associated-collections-list">
+			<tbody>
+				<th:block th:each="collection : ${result.collections}">
+				<tr>
+					<td class="associated-collection-title" style="padding-left:15px;">
+						<th:block th:text="${nstatus.index + 1}" />. 
+						<a href="/collections/collection?id=<span th:text="${collection.id}" />">
+							<th:block th:text="${collection.title}" />
+						</a>
+					</td>
+				</tr>
+				</th:block>	
+			</tbody>
+		</table>
+	</div>
+</div>

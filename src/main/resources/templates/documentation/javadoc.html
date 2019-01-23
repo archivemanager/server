@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>		
+		<div th:replace="fragments/header :: javascript"/>
+		<script type="text/javascript" src="/js/administration.js"></script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				$('#documentation-frame').height($(window).height()-150);
+				$(".loader").fadeOut("slow");
+			});			
+		</script>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<table style="width:100%;height:100%;">
+			<tr>
+				<td style="vertical-align:top;height:80px;" colspan="2"><div th:replace="fragments/header :: content" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top;">
+					<div th:replace="fragments/menus :: main" />
+				</td>
+				<td style="width:100%;vertical-align:top;">
+					<div id="mainLayout">	
+						<iframe id="documentation-frame" style="width:99%;height:100%;" src="/apidocs/index.html" />
+					</div>
+				</td>
+			</tr>			
+		</table>
+	</body>
+</html>

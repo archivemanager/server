@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<div th:fragment="main">
+		<div class="rounded-border" style="float:left;width:85px;margin-right:5px;">			
+			<a class="header-button" href="/app/repository"><i class="fas fa-archive fa-3x" aria-hidden="true"></i>Collections</a>
+			<a class="header-button" href="/app/classification"><i class="fas fa-tags fa-3x" aria-hidden="true"></i>Classification</a>					
+			<a class="header-button" href="/app/content"><i class="fas fa-print fa-3x"></i>Content</a>
+			<a class="header-button" href="/app/reporting"><i class="fas fa-chart-bar fa-3x" aria-hidden="true"></i>Reporting</a>
+			<a class="header-button" style="width:70px;" href="/app/search"><i class="fas fa-search fa-3x" aria-hidden="true"></i>Search</a>
+			<!--a class="header-button" href="/documentation"><i class="fas fa-book fa-3x" aria-hidden="true"></i>Documentation</a-->				
+			<div sec:authorize="hasAuthority('ADMINISTRATOR')">
+				<a class="header-button" href="/administration"><i class="fas fa-cogs fa-3x" aria-hidden="true"></i>Administration</a>
+			</div>
+			
+		</div>		
+	</div>
+</html>

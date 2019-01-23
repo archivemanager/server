@@ -1,0 +1,466 @@
+<?xml version="1.0"?>
+<dictionary qname="openapps_org_repository_1_0_schema" name="Repository Dictionary" label="" description="content repositories and collections">
+	<models>
+		<model namespace="openapps_org_repository_1_0" localname="accession" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>AM Accession</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="books" mandatory="false" unique="false" hidden="false" label="Books" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="existing_collection" mandatory="false" unique="false" hidden="false" label="Existing_collection" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="new_collection" mandatory="false" unique="false" hidden="false" label="New_collection" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="use_note" mandatory="false" unique="false" hidden="false" label="Use_note" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="use_restricted" mandatory="false" unique="false" hidden="false" label="Use_restricted" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="access_restriction_note" mandatory="false" unique="false" hidden="false" label="Access_restriction_note" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="access_restricted" mandatory="false" unique="false" hidden="false" label="Access_restricted" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="access_note" mandatory="false" unique="false" hidden="false" label="Access_note" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="rights_note" mandatory="false" unique="false" hidden="false" label="Rights_note" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_repository_1_0" localname="rights_date" mandatory="false" unique="false" hidden="false" label="Rights_date" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="acknowledged" mandatory="false" unique="false" hidden="false" label="Acknowledged" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="complete" mandatory="false" unique="false" hidden="false" label="Complete" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="status" mandatory="false" unique="false" hidden="false" label="Status" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="processors" mandatory="false" unique="false" hidden="false" label="Processors" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="priority" mandatory="false" unique="false" hidden="false" label="Priority" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_repository_1_0" localname="end_date" mandatory="false" unique="false" hidden="false" label="End_date" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_repository_1_0" localname="start_date" mandatory="false" unique="false" hidden="false" label="Start_date" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="general_note" mandatory="false" unique="false" hidden="false" label="General_note" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="condition" mandatory="false" unique="false" hidden="false" label="Condition" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="inventory" mandatory="false" unique="false" hidden="false" label="Inventory" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="description" mandatory="false" unique="false" hidden="false" label="Description" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="appraisal" mandatory="false" unique="false" hidden="false" label="Appraisal" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="estimated_packages" mandatory="false" unique="false" hidden="false" label="Estimated_packages" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="pagebox_quantity" mandatory="false" unique="false" hidden="false" label="Pagebox_quantity" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="linear_feet" mandatory="false" unique="false" hidden="false" label="Linear_feet" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="paid" mandatory="false" unique="false" hidden="false" label="Paid" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="description" mandatory="false" unique="false" hidden="false" label="Description" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="acquisition_type" mandatory="false" unique="false" hidden="false" label="Acquisition_type" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="extent_type" mandatory="false" unique="false" hidden="false" label="Extent_type" searchable="false">
+					<values>
+						<value value="linear_foot" label="Linear Foot" />
+						<value value="package" label="Package" />
+						<value value="envelope" label="Envelope" />
+						<value value="box" label="Box" />
+					</values>
+				</property>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="extent_number" mandatory="false" unique="false" hidden="false" label="Extent_number" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="cost" mandatory="false" unique="false" hidden="false" label="Cost" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="aquisition_type" mandatory="false" unique="false" hidden="false" label="Aquisition_type" searchable="false">
+					<values>
+						<value value="Transfer" label="Transfer" />
+						<value value="Purchase" label="Purchase" />
+						<value value="Gift" label="Gift" />
+						<value value="Deposit" label="Deposit" />
+					</values>
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="identifier" mandatory="false" unique="false" hidden="false" label="Identifier" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_repository_1_0" localname="date" mandatory="false" unique="false" hidden="false" label="Date" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_repository_1_0" localname="locations" label="Locations" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="location"></target>
+				</association>
+				<association namespace="openapps_org_system_1_0" localname="users" label="Users" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_system_1_0" localname="user"></target>
+				</association>
+				<association namespace="openapps_org_contact_1_0" localname="addresses" label="Addresses" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_contact_1_0" localname="address"></target>
+				</association>
+				<association namespace="openapps_org_contact_1_0" localname="contacts" label="Contacts" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_contact_1_0" localname="contact"></target>
+				</association>
+				<association namespace="openapps_org_system_1_0" localname="notes" label="Notes" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_system_1_0" localname="note"></target>
+				</association>
+				<association namespace="openapps_org_system_1_0" localname="donors" label="Donors" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_contact_1_0" localname="contact"></target>
+				</association>
+				<association namespace="openapps_org_repository_1_0" localname="extents" label="Extents" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="extent"></target>
+				</association>
+				<association namespace="openapps_org_repository_1_0" localname="items" label="Items" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="item"></target>
+				</association>
+				<association namespace="openapps_org_repository_1_0" localname="accessions" label="Accessions" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="accession"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_repository_1_0" localname="category" label="" stored="true" searchable="false">
+			<parent namespace="openapps_org_repository_1_0" localname="repository_object"/>
+			<description>AM Component</description>
+			<properties>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="order" mandatory="false" unique="false" hidden="false" label="Order" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="container" mandatory="false" unique="false" hidden="false" label="Container" searchable="false">
+				</property>
+				<property type="longtext" namespace="openapps_org_repository_1_0" localname="summary" mandatory="false" unique="false" hidden="false" label="Summary" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="genre" mandatory="false" unique="false" hidden="false" label="Genre" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="date_expression" mandatory="false" unique="false" hidden="false" label="Date Expression" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="level" mandatory="false" unique="false" hidden="false" label="Level" searchable="false">
+					<values>
+						<value value="file" label="File" />
+						<value value="subgroup" label="SubGroup" />
+						<value value="group" label="Group" />
+						<value value="subseries" label="SubSeries" />
+						<value value="series" label="Series" />
+					</values>
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="extent_type" mandatory="false" unique="false" hidden="false" label="Extent_type" searchable="false">
+					<values>
+						<value value="linear_foot" label="Linear Foot" />
+						<value value="package" label="Package" />
+						<value value="envelope" label="Envelope" />
+						<value value="box" label="Box" />
+					</values>
+				</property>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="extent_number" mandatory="false" unique="false" hidden="false" label="Extent Number" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="extent_units" mandatory="false" unique="false" hidden="false" label="Extent Units" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_repository_1_0" localname="categories" label="Categories" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="category"></target>
+				</association>
+				<association namespace="openapps_org_repository_1_0" localname="items" label="Items" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="item"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_repository_1_0" localname="collection" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_repository_1_0" localname="repository_object"/>
+			<description>AM Collection</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="longtext" namespace="openapps_org_repository_1_0" localname="bio_note" mandatory="false" unique="false" hidden="false" label="Bio Note" searchable="false">
+				</property>
+				<property type="longtext" namespace="openapps_org_repository_1_0" localname="scope_note" mandatory="false" unique="false" hidden="false" label="Scope Note" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_repository_1_0" localname="url" mandatory="false" unique="false" hidden="false" label="Url" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="date_expression" mandatory="false" unique="false" hidden="false" label="Date Expression" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="bulk_end" mandatory="false" unique="false" hidden="false" label="Bulk End" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="bulk_begin" mandatory="false" unique="false" hidden="false" label="Bulk Begin" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="identifier" mandatory="false" unique="false" hidden="false" label="Identifier" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="code" mandatory="false" unique="false" hidden="false" label="Collection Code" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="container" mandatory="false" unique="false" hidden="false" label="Container" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="extent_type" mandatory="false" unique="false" hidden="false" label="Extent Units" searchable="false">
+					<values>
+						<value value="linear_foot" label="Linear Foot" />
+						<value value="package" label="Package" />
+						<value value="envelope" label="Envelope" />
+						<value value="box" label="Box" />
+					</values>
+				</property>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="extent_number" mandatory="false" unique="false" hidden="false" label="Extent Number" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="public" mandatory="false" unique="false" hidden="false" label="Container" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="searchable" mandatory="false" unique="false" hidden="false" label="Searchable" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_repository_1_0" localname="accessions" label="Accessions" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="accession"></target>
+				</association>
+				<association namespace="openapps_org_repository_1_0" localname="collections" label="Collections" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="collection"></target>
+				</association>
+				<association namespace="openapps_org_crawling_1_0" localname="crawlers" label="Crawlers" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_crawling_1_0" localname="crawler"></target>
+				</association>
+				<association namespace="openapps_org_repository_1_0" localname="categories" label="Categories" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="category"></target>
+				</association>
+				<association namespace="openapps_org_repository_1_0" localname="items" label="Items" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="item"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_repository_1_0" localname="correspondence" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_repository_1_0" localname="item"/>
+			<description>AM Correspondence</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="form" mandatory="false" unique="false" hidden="false" label="Form" searchable="true">
+					<values>
+						<value value="Other" label="Other" />
+						<value value="TL" label="TL" />
+						<value value="AL" label="AL" />
+						<value value="TNS" label="TNS" />
+						<value value="ANS" label="ANS" />
+						<value value="CTLS" label="CTLS" />
+						<value value="TLS" label="TLS" />
+						<value value="ALS" label="ALS" />
+					</values>
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="genre" mandatory="false" unique="false" hidden="false" label="Genre" searchable="true">
+					<values>
+						<value value="Other" label="Other" />
+						<value value="Note" label="Note" />
+						<value value="Memo" label="Memo" />
+						<value value="E-mail" label="E-mail" />
+						<value value="Fax" label="Fax" />
+						<value value="Invitation" label="Invitation" />
+						<value value="Telegram" label="Telegram" />
+						<value value="Card" label="Card" />
+						<value value="Postcard" label="Postcard" />
+						<value value="Letter" label="Letter" />
+					</values>
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_repository_1_0" localname="extent" label="" stored="true" searchable="false">
+			<description>AM Extent</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+					<values>
+						<value value="linear foot" label="linear foot" />
+						<value value="package" label="package" />
+						<value value="envelope" label="envelope" />
+						<value value="box" label="box" />
+					</values>
+				</property>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="value" mandatory="false" unique="false" hidden="false" label="Value" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_repository_1_0" localname="item" label="" stored="true" searchable="false">
+			<parent namespace="openapps_org_repository_1_0" localname="repository_object"/>
+			<description>AM Item</description>
+			<properties>
+				<property type="longtext" namespace="openapps_org_repository_1_0" localname="summary" mandatory="false" unique="false" hidden="false" label="Summary" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_repository_1_0" localname="url" mandatory="false" unique="false" hidden="false" label="URL" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_repository_1_0" localname="authors" mandatory="false" unique="false" hidden="false" label="Authors" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="date_expression" mandatory="false" unique="false" hidden="false" label="Date Expression" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="container" mandatory="false" unique="false" hidden="false" label="Container" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="digital_reserve" mandatory="false" unique="false" hidden="false" label="Digital Reserve" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="order" mandatory="false" unique="false" hidden="false" label="Order" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="extent_number" mandatory="false" unique="false" hidden="false" label="Extent Number" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="extent_type" mandatory="false" unique="false" hidden="false" label="Extent Units" searchable="false">
+					<values>
+						<value value="linear_foot" label="Linear Foot" />
+						<value value="package" label="Package" />
+						<value value="envelope" label="Envelope" />
+						<value value="box" label="Box" />
+					</values>
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_classification_1_0" localname="academic_courses" label="Academic_courses" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_classification_1_0" localname="academic_course"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_repository_1_0" localname="location" label="" stored="true" searchable="false">
+			<description>AM Location</description>
+			<properties>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="space" mandatory="false" unique="false" hidden="false" label="Space" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="code" mandatory="false" unique="false" hidden="false" label="Code" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="container" mandatory="false" unique="false" hidden="false" label="Container" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="accession" mandatory="false" unique="false" hidden="false" label="Accession" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="collection" mandatory="false" unique="false" hidden="false" label="Collection" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="description" mandatory="false" unique="false" hidden="false" label="Description" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="bay" mandatory="false" unique="false" hidden="false" label="Bay" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="aisle" mandatory="false" unique="false" hidden="false" label="Aisle" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="floor" mandatory="false" unique="false" hidden="false" label="Floor" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="building" mandatory="false" unique="false" hidden="false" label="Building" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_system_1_0" localname="notes" label="Notes" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_system_1_0" localname="note"></target>
+				</association>
+				<association namespace="openapps_org_repository_1_0" localname="locations" label="Locations" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="location"></target>
+				</association>
+				<association namespace="openapps_org_repository_1_0" localname="locations" label="Locations" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="location"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_repository_1_0" localname="repository" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>AM Repository</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_repository_1_0" localname="url" mandatory="false" unique="false" hidden="false" label="Url" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="short_name" mandatory="false" unique="false" hidden="false" label="Short Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="country_code" mandatory="false" unique="false" hidden="false" label="Country Code" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="lang" mandatory="false" unique="false" hidden="false" label="Lang" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="branding" mandatory="false" unique="false" hidden="false" label="Branding" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="nces" mandatory="false" unique="false" hidden="false" label="Nces" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="agency_code" mandatory="false" unique="false" hidden="false" label="Agency Code" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="institution" mandatory="false" unique="false" hidden="false" label="Institution" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="telephone" mandatory="false" unique="false" hidden="false" label="Telephone" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="email" mandatory="false" unique="false" hidden="false" label="Email" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="address2" mandatory="false" unique="false" hidden="false" label="Address 1" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="address1" mandatory="false" unique="false" hidden="false" label="Address 2" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="country" mandatory="false" unique="false" hidden="false" label="Country" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="fax" mandatory="false" unique="false" hidden="false" label="Fax" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="state" mandatory="false" unique="false" hidden="false" label="State" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="city" mandatory="false" unique="false" hidden="false" label="City" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="zip" mandatory="false" unique="false" hidden="false" label="Zip" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="public" mandatory="false" unique="false" hidden="false" label="Public" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_repository_1_0" localname="collections" label="Collections" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="collection"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_repository_1_0" localname="repository_object" label="Repository Object" stored="true" searchable="false">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>AM Component</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="longtext" namespace="openapps_org_system_1_0" localname="description" mandatory="false" unique="false" hidden="false" label="Description" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="public" mandatory="false" unique="false" hidden="false" label="Public" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="internal" mandatory="false" unique="false" hidden="false" label="Internal" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_repository_1_0" localname="restrictions" mandatory="false" unique="false" hidden="false" label="Restrictions" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_repository_1_0" localname="size" mandatory="false" unique="false" hidden="false" label="Size" searchable="false">
+				</property>
+				<property type="longtext" namespace="openapps_org_repository_1_0" localname="comments" mandatory="false" unique="false" hidden="false" label="Comments" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="begin" mandatory="false" unique="false" hidden="false" label="Begin" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="end" mandatory="false" unique="false" hidden="false" label="End" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="okra_num" mandatory="false" unique="false" hidden="false" label="Okra Number" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_repository_1_0" localname="accession_date" mandatory="false" unique="false" hidden="false" label="Accession Date" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_repository_1_0" localname="language" mandatory="false" unique="false" hidden="false" label="Language" searchable="true">
+					<values>
+						<value value="en" label="English" />
+						<value value="fr" label="French" />
+						<value value="de" label="German" />
+						<value value="el" label="Greek" />
+						<value value="it" label="Italian" />
+						<value value="ja" label="Japanese" />
+						<value value="ko" label="Korean" />
+						<value value="ru" label="Russian" />
+						<value value="es" label="Spanish" />
+					</values>
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_content_1_0" localname="web_links" label="Web Links" hidden="false" cascade="true" many="false" view="view3">
+					<target namespace="openapps_org_content_1_0" localname="web_link"></target>
+				</association>
+				<association namespace="openapps_org_content_1_0" localname="web_content_items" label="Web Content Items" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_content_1_0" localname="web_content"></target>
+				</association>
+				<association namespace="openapps_org_classification_1_0" localname="subjects" label="Subjects" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_classification_1_0" localname="subject"></target>
+				</association>
+				<association namespace="openapps_org_classification_1_0" localname="people" label="People" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_classification_1_0" localname="person"></target>
+				</association>
+				<association namespace="openapps_org_classification_1_0" localname="corporations" label="Corporations" hidden="false" cascade="false" many="false" view="">
+					<target namespace="openapps_org_classification_1_0" localname="corporation"></target>
+				</association>
+				<association namespace="openapps_org_system_1_0" localname="notes" label="Notes" hidden="false" cascade="false" many="false" view="view1">
+					<target namespace="openapps_org_system_1_0" localname="note"></target>
+				</association>
+				<association namespace="openapps_org_content_1_0" localname="files" label="Files" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_content_1_0" localname="file"></target>
+				</association>
+				<association namespace="openapps_org_repository_1_0" localname="locations" label="Locations" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_repository_1_0" localname="location"></target>
+				</association>
+				<association namespace="openapps_org_contact_1_0" localname="contacts" label="Contacts" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_contact_1_0" localname="contact"></target>
+				</association>
+				<association namespace="openapps_org_system_1_0" localname="permissions" label="Permissions" hidden="true" cascade="false" many="false" view="">
+					<target namespace="openapps_org_system_1_0" localname="permission"></target>
+				</association>
+			</associations>
+		</model>
+	</models>
+</dictionary>

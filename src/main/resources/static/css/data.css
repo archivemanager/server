@@ -1,0 +1,14 @@
+.attribute-label{width:200px;}
+.attribute-value{width:48%;}
+
+.form-row {margin:20px 0;}
+.form-row .textbox{min-width:220px;}
+.form-row .textbox-text {min-width:220px;}
+
+.textbox-label {min-width:90px;}
+.datagrid-btable{width:100%;}
+
+.tabs-panels{border-width:0;}
+.tabs-header{border-width:0;}
+
+.panel-body-noheader {border-top-width: 0;}

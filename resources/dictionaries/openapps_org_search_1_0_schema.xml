@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<dictionary qname="openapps_org_search_1_0_schema" name="Search and Navigation Dictionary" label="" description="search dictionaries">
+	<models>
+		<model namespace="openapps_org_search_1_0" localname="attribute" label="" stored="true" searchable="false">
+			<description>Search Definition</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="sort" mandatory="false" unique="false" hidden="false" label="Sort" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="description" mandatory="false" unique="false" hidden="false" label="Description" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_search_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_search_1_0" localname="attribute_values" label="Attribute_values" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_search_1_0" localname="attribute_value"></target>
+				</association>
+				<association namespace="openapps_org_search_1_0" localname="attributes" label="Attributes" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_search_1_0" localname="attribute"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_search_1_0" localname="attribute_value" label="" stored="true" searchable="false">
+			<description>Search Definition</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="value" mandatory="false" unique="false" hidden="false" label="Value" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_search_1_0" localname="definition" label="" stored="true" searchable="false">
+			<description>Search Definition</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="value" mandatory="false" unique="false" hidden="false" label="Value" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_search_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_search_1_0" localname="definitions" label="Definitions" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_search_1_0" localname="definition"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_search_1_0" localname="dictionary" label="" stored="true" searchable="false">
+			<description>Search Dictionary</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="description" mandatory="false" unique="false" hidden="false" label="Description" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_search_1_0" localname="properties" label="Properties" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_search_1_0" localname="property"></target>
+				</association>
+				<association namespace="openapps_org_search_1_0" localname="dictionaries" label="Dictionaries" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_search_1_0" localname="dictionary"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_search_1_0" localname="event" label="Search Event" stored="false" searchable="false">
+			<description>Search Event</description>
+			<properties>
+				<property type="long" namespace="openapps_org_system_1_0" localname="timestamp" mandatory="false" unique="false" hidden="false" label="Timestamp" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="ipaddress" mandatory="false" unique="false" hidden="false" label="Ipaddress" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_search_1_0" localname="query_event" label="Search Event" stored="false" searchable="true">
+			<parent namespace="openapps_org_search_1_0" localname="event"/>
+			<description>Search Query Event</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_search_1_0" localname="query" mandatory="false" unique="false" hidden="false" label="Query" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_system_1_0" localname="count" mandatory="false" unique="false" hidden="false" label="Count" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_search_1_0" localname="view_event" label="Search Event" stored="false" searchable="true">
+			<parent namespace="openapps_org_search_1_0" localname="event"/>
+			<description>Search View Event</description>
+			<properties>
+				<property type="long" namespace="openapps_org_system_1_0" localname="target" mandatory="false" unique="false" hidden="false" label="Target" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_search_1_0" localname="property" label="" stored="true" searchable="false">
+			<description>Search Definition</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="value" mandatory="false" unique="false" hidden="false" label="Value" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_search_1_0" localname="properties" label="Properties" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_search_1_0" localname="property"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_search_1_0" localname="search_term" label="" stored="true" searchable="false">
+			<description>Search Term</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="description" mandatory="false" unique="false" hidden="false" label="Description" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="value" mandatory="false" unique="false" hidden="false" label="Value" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_search_1_0" localname="search_terms" label="Search_terms" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_search_1_0" localname="search_term"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_search_1_0" localname="searcher" label="" stored="true" searchable="false">
+			<description>Search Definition</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="description" mandatory="false" unique="false" hidden="false" label="Description" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+	</models>
+</dictionary>

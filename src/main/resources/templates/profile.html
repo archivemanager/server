@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>		
+		<div th:replace="fragments/header :: javascript"/>
+		<script type="text/javascript" src="/js/profile.js"></script>
+		<style>
+		.form-row .textbox {min-width:350px;}
+		.form-row .textbox-text {min-width:350px;}
+		</style>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<table style="width:100%;height:100%;">
+			<tr>
+				<td style="vertical-align:top;height:80px;" colspan="2"><div th:replace="fragments/header :: content" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top;">
+					<div th:replace="fragments/menus :: main" />
+				</td>
+				<td style="width:100%;vertical-align:top;">
+					<div class="rounded-border" style="width:400px;margin:0 auto;margin-top:75px;">	
+					    <img src="/images/logo/ArchiveManager200.png" />
+					    <form id="fm" method="post" style="margin:10px;padding:10px;">
+					    	<input name="id" th:value="${user.id}" type="hidden" />
+						    <div class="form-row">
+						       	<input id="name" name="name" type="text" class="easyui-textbox" style="width:100%;" label="Name" labelPosition="top" autofocus="true" th:value="${user.name}"/>
+						    </div>
+						    <div class="form-row">
+						       	<input id="email" name="email" type="text" class="easyui-textbox" style="width:100%;" label="E-Mail" labelPosition="top" autofocus="true" th:value="${user.email}"/>
+						    </div>						    
+						    <div th:if="${error}">
+						      	<span><div th:text="${error}"></div></span>
+						    </div>
+						</form>
+					    <button href="javascript:void(0)" class="easyui-linkbutton" onclick="doSaveUser();"><i class="fas fa-save"></i>Save</button>
+					    <button href="javascript:void(0)" class="easyui-linkbutton" onclick="changePassword()"><i class="fas fa-key"></i>Password</button>
+					</div>
+					<div id="windows">
+						<div id="passwordWindow" class="easyui-window" style="max-height:400px;width:500px;">
+							<div style="margin:20px;">
+								<div class="form-row">
+									<input id="passwordWindow_password" name="password" type="text" class="easyui-passwordbox" style="width:100%;" />
+								</div>	
+								<button id="passwordSave" class="easyui-linkbutton" onclick="doSavePassword()"><i class="fas fa-save"></i>Save</button>
+							</div>									
+						</div>
+					</div>
+				</td>
+			</tr>			
+		</table>
+	</body>
+</html>

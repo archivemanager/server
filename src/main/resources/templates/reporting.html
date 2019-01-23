@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>		
+		<div th:replace="fragments/header :: javascript"/>
+		<link rel="stylesheet" type="text/css" href="/css/reporting.css" />
+		<script type="text/javascript" src="/js/views/expandView.js"></script>
+		<script type="text/javascript" src="/js/library/archivemanager.js"></script>
+		<script type="text/javascript" src="/js/reporting.js"></script>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<table style="width:100%;height:100%;">
+			<tr>
+				<td style="vertical-align:top;height:80px;" colspan="2"><div th:replace="fragments/header :: content" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top;">
+					<div th:replace="fragments/menus :: main" />
+				</td>
+				<td style="width:100%;vertical-align:top;">
+					<div id="reporting" class="easyui-layout" fit="true">
+						<div id="left-layout" style="width:400px;" data-options="region:'west',collapsible:false">		
+							<div class="rounded-border" style="width:340px;margin:12px;padding:15px;">
+								<span style="font-size:24px;font-weight:bold;"><i class="fas fa-chart-bar" aria-hidden="true"></i>REPORTING</span>
+								<div class="form-row" style="margin-bottom:35px;">
+									<input id="query" class="easyui-textbox" style="width:250px;border:1px solid #ccc"/>
+							   		<a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch();">Search</a>
+								</div>
+								<div class="form-row">
+						   			<label class="textbox-label">Type</label>
+						   			<select id="qnames" class="easyui-combobox" panelHeight="150px;" editable="false" style="width:200px;margin-left:8px;">
+										<option th:each="model:${models}" th:value="${model.id}" th:text="${model.name}">model</option>
+									</select>							   		
+								</div>
+								<div id="reportFields"></div>
+								<hr style="margin-top:55px;"/>
+								<div id="reportButtons">
+									<a id="add-repository-button" href="javascript:void(0)" class="easyui-linkbutton" onclick="openExcel()"><i class="fas fa-file-excel"></i>Export CSV</a>
+								</div>
+							</div>
+						</div>
+						<div id="center-layout" class="easyui-panel" style="width:100%;" data-options="region:'center'">
+							<table id="reporting-grid" class="easyui-datagrid" style="height:100%;">
+								<thead>
+									<tr>
+								       	<th field="id" width="80">ID</th>
+								       	<th field="openapps_org_system_1_0_name" width="300">Name</th>
+								       	<th field="openapps_org_system_1_0_description" width="500">Description</th>
+								    </tr>
+								</thead>
+							</table>
+					   	</div>
+					</div>
+				</td>
+			</tr>			
+		</table>
+	</body>
+</html>

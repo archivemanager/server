@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>		
+		<div th:replace="fragments/header :: javascript"/>
+
+		<script type="text/javascript" src="/js/views/assocView.js"></script>
+		<script type="text/javascript" src="/js/views/expandView.js"></script>
+		<script type="text/javascript" src="/js/library/archivemanager.js"></script>
+		<script type="text/javascript" src="/js/classification.js"></script>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<table style="width:100%;height:100%;">
+			<tr>
+				<td style="vertical-align:top;height:80px;" colspan="2"><div th:replace="fragments/header :: content" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top;">
+					<div th:replace="fragments/menus :: main" />
+				</td>
+				<td style="width:100%;vertical-align:top;">
+					<div id="mainLayout" class="easyui-layout" fit="true">
+						<div id="north-layout" style="height:35px;" data-options="region:'north'">
+							<div style="float:left;width:400px;">
+							   	<a id="add-button" href="javascript:void(0)" class="easyui-linkbutton" onclick="addEntity()"><i class="fas fa-plus-circle"></i>Add</a>
+							   	<a id="rem-button" href="javascript:void(0)" class="easyui-linkbutton" style="display:none;" plain="true" onclick="removeEntity()"><i class="fas fa-minus-circle"></i>Remove</a>
+							</div>
+							<div style="float:right;text-align:right;">
+								<a id="save-button" href="javascript:void(0)" class="easyui-linkbutton" onclick="updateEntity()"><i class="fas fa-save"></i>Save</a>
+								<select id="qname" class="easyui-combobox" data-options="editable:false" style="width:150px;">
+									<option value="openapps_org_classification_1_0_academic_course">Academic Courses</option>
+						   			<option value="openapps_org_classification_1_0_corporation">Corporations</option>
+						   			<option value="openapps_org_classification_1_0_person">People</option>
+						   			<option value="openapps_org_classification_1_0_subject">Subjects</option>
+						   		</select>
+								<input id="query" class="easyui-textbox" style="width:180px;border:1px solid #ccc" onkeypress="handleKeyPressRepositorySearch(event)">
+						      	<a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch();">Search</a>
+							</div>
+						</div>   
+					    <div id="left-layout" style="width:400px;" data-options="region:'west',collapsible:false">    	
+					    	<table id="classificationGrid" class="easyui-datagrid" pagination="true" rownumbers="false" singleSelect="true" pageSize="20">
+							   <thead>
+							      <tr>
+							         <th field="name" width="200">Name</th>
+							      </tr>
+							   </thead>
+							</table>
+					    </div>
+						
+						<div id="tabs1" class="easyui-panel" style="width:100%;" data-options="region:'center'">
+							<div id="application-body" class="easyui-tabs" title=" " data-options="fit:true">
+						    	<div id="intro-screen" title="intro-screen" class="screen" style="text-align:center;">
+						    		<img src="/images/logo/ArchiveManager450_495.png" />
+						    	</div>
+						    	<div id="form-screen" title="form-screen" class="screen">
+						    		<div id="tabLayout" class="easyui-tabs" style="width:100%;height:100%;" title=" " data-options="fit:true">
+								    	<div title="Details" class="screen" style="padding:20px;display:none;">
+									    	<form id="entityForm" method="post" enctype="multipart/form-data">
+										    	<div class="form-row" style="min-height:25px;">
+										            <div class="form-row-col1">
+											        	<div style="float:left;margin-top:3px;">
+											                <label class="textbox-label textbox-label-top" style="text-align:left;float:left;margin-right:5px;min-width:20px;">ID:</label>
+											                <label id="label-id" class="textbox-label textbox-label-top" style="text-align:left;float:left;min-width:115px;"></label>
+											            </div>
+											       	</div>
+											        <div class="form-row-col2">
+											            <div style="float:right;margin-top:3px;">
+											                <label class="textbox-label textbox-label-top" style="text-align:left;float:left;margin-right:5px;min-width:90px;">Last Update:</label>
+											                <label id="label-update" class="textbox-label textbox-label-top" style="text-align:left;float:left;min-width:110px;"></label>
+											            </div>
+											        </div>
+										        </div>			        
+										        <div id="entityFields"></div>
+											</form>
+										</div>
+										<div title="Items" class="screen" style="padding:20px;display:none;">
+											<table id="targetGrid" class="easyui-datagrid" style="min-height:100%;"></table>
+										</div>
+									</div>								            
+								</div>	    	
+						    </div>
+					    </div>
+					    <div id="tabs2" class="easyui-panel" style="width:400px;" data-options="region:'east',collapsible:false">
+						    <div id="application-properties" class="easyui-tabs" title=" " data-options="fit:true">
+						    	<div id="model-associations" title="model-associations" class="easyui-accordion" data-options="fit:true"></div>
+						    </div>
+					    </div>
+					</div>
+					<div id="windows"></div>
+				</td>
+			</tr>			
+		</table>
+	</body>
+</html>

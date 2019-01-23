@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>
+		<style>
+			#leftColumn{border-width:0px;}
+		</style>
+		
+		<div th:replace="fragments/header :: javascript"/>
+		<script type="text/javascript" src="/easyui-1.6.2/ext/jquery.portal.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>		
+		<script type="text/javascript" src="/js/analytics.js"></script>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<div th:replace="fragments/header :: content"/>
+		<div class="container">
+			<table style="width:100%;height:100%;">
+				<tr style="vertical-align:top;">
+					<td>
+						<div th:replace="fragments/menus :: main" />
+					</td>
+					<td>
+						<div id="portal">
+							<table cellspacing="10" style="width:100%;">
+								<tr>
+									<td style="vertical-align:top;width:50%;">
+										<div style="width:100%;">
+							    			<table id="dg" title="Searches Performed" class="easyui-datagrid" style="width:100%;" pagination="true"
+												fitColumns="true" singleSelect="true" pageSize="10" url="/search/logs/searches.json">
+											    <thead>
+											    	<tr>
+											        	<th field="timestamp" width="250">Timestamp</th>
+											           	<th field="ipaddress" width="200">I.P. Address</th>
+											           	<th field="query" width="400">Query</th>	      
+											        </tr>
+												</thead>
+											</table>
+											<div style="width:99%;border:1px solid #ccc;margin-top:25px;">
+									    		<canvas id="chart1"></canvas>
+									    	</div>
+										</div>
+									</td>
+									<td style="vertical-align:top;width:50%;">
+										<div style="width:100%;">
+											<table id="dg2" title="Page Views" class="easyui-datagrid" style="width:100%;" pagination="true" 
+												fitColumns="true" singleSelect="true" pageSize="10" url="/search/logs/views.json">
+											    <thead>
+											    	<tr>
+											        	<th field="timestamp" width="250">Timestamp</th>
+											           	<th field="ipaddress" width="200">I.P. Address</th>
+											           	<th field="value" width="400">Value</th>	      
+											        </tr>
+												</thead>
+											</table>
+											<div style="width:99%;border:1px solid #ccc;margin-top:25px;">
+									    		<canvas id="chart2"></canvas>
+									    	</div>
+										</div>
+									</td>									
+								</tr>
+							</table>	    
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,159 @@
+<script>
+$(document).ready(function() { 
+	$('#collectionQuery').bind('keypress', function (e) {
+	    var code = e.keyCode || e.which;
+	 	if(code == 13) {
+	   		search();
+	 	}
+	});
+});
+function search() {
+	var query = $('#collectionQuery').val();
+	document.location = '<span th:text="${baseUrl}" />&query='+query+'&size=<span th:text="${size}" />';
+}
+</script>
+<div id="search-results">
+	<table style="width:100%;">
+		<tr>
+			<td>
+				<input id="collectionQuery" class="searchtext1" name="query" type="text" style="margin-bottom:0px;" />
+				<input type="button" value="SEARCH" onclick="search();" />
+			</td>
+		</tr>
+		<div th:if="${#lists.isEmpty(resultset.results)}">
+			<tr><td style="height:500px;"><b>No results were found, please try again</b></td></tr>
+		</div>
+		<div th:if="${not #lists.isEmpty(resultset.results)}">
+		<tr>
+			<td>
+				<table class="search-tools">
+					<tbody>
+						<tr>
+							<td>
+								<div th:if="${resultset.start != 0}">
+									Results <b><span th:text="${resultset.start}" /> - <span th:text="${resultset.end}" /></b> of <b><span th:text="${resultset.resultCount}" /></b>
+								</div>
+								<div th:if="${resultset.start == 0}">
+									Results <b>1 - <span th:text="${resultset.end}" /></b> of <b><span th:text="${resultset.resultCount}" /></b>
+								</div>
+								<div th:if="${empty resultset.results}">
+									<b>No Results</b>
+								</div>
+							</td>
+							<td class="tools-right"> 
+								Show &nbsp; 
+								<div th:if="${resultset.pageSize == 10}">
+									<b>10</b>
+								</div>
+								<div th:if="${resultset.pageSize != 10}">
+									<a href="<span th:text="${baseUrl}" />&<span th:text="${resultset.query}" />&size=10">10</a>
+								</div>
+								&nbsp;
+								<div th:if="${resultset.pageSize == 25}">
+									<b>25</b>
+								</div>
+								<div th:if="${resultset.pageSize != 25}">
+									<a href="<span th:text="${baseUrl}" />&<span th:text="${resultset.query}" />&size=25">25</a>
+								</div>
+								&nbsp;
+								<div th:if="${resultset.pageSize == 50}">
+									<b>50</b>
+								</div>
+								<div th:if="${resultset.pageSize != 50}">
+									<a href="<span th:text="${baseUrl}" />&<span th:text="${resultset.query}" />&size=50">50</a>
+								</div>
+							</td>						
+						</tr>
+					</tbody>
+				</table>
+					
+				<table class="search-table">
+					<tbody>
+						<tr>
+							<th class="title-bar-start">Title/Description</th>
+							<div th:if="${contentType == 'true'}">
+								<th class="title-bar contentType">Content Type</th>
+							</div>
+							<div th:if="${language == 'true'}">
+								<th class="title-bar language">Language</th>
+							</div>
+							<div th:if="${dateExpression == 'true'}">
+								<th class="title-bar dateExpression">Date</th>
+							</div>							
+							<div th:if="${collection == 'true'}">
+								<th class="title-bar collection">Collection</th>
+							</div>							
+						</tr>
+						<th:block th:each="result : ${resultset.results}">
+						<tr>						
+							<td class="title-cell">
+								<div>
+									<a class="title" href="<span th:text="${detailPage}" />?id=<span th:text="${result.id}" />">
+										<span th:text="${result.title}" />
+									</a>
+								</div>
+								<div th:if="${description == 'true'}">
+								<div class="description-cell">
+									<span th:text="${result.description}"/>
+								</div>
+								</div>
+								<div th:if="${summary == 'true'}">
+								<div class="description-cell">
+									<span th:text="${result.summary}" />
+								</div>
+								</div>
+							</td>
+							<div th:if="${contentType == 'true'}">
+								<td class="content-cell">
+									<span th:text="${result.contentType}" />
+								</td>
+							</div>
+							<div th:if="${language == 'true'}">
+								<td class="language-cell">
+									<span th:text="${result.language}" />
+								</td>
+							</div>							
+							<div th:if="${dateExpression == 'true'}">
+								<td class="date-cell">
+									<a class="title" href="<span th:text="${detailPage}" />?id=<span th:text="${result.id}" />">
+										<span th:text="${result.dateExpression}" />
+									</a>
+								</td>
+							</div>
+							<div th:if="${collection == 'true'}">
+								<td class="collection-cell">
+									<span th:text="${result.collectionName}" escapeXml="false" />
+								</td>
+							</div>							
+						</tr>
+						<tr>
+							<td colspan="4">
+								<div class="search-line-border"></div>
+							</td>
+						</tr>
+						</th:block>
+					</tbody>
+				</table>
+	
+				<table class="search-paging">
+					<tbody><tr>
+						<td></td>
+						<td class="tools_right">
+							<th:block th:each="page : ${resultset.paging}">
+								<div th:switch="${page.name}">
+									<div th:case="'currentPage'">
+										<b><span th:text="${page.name}" /></b>
+									</div>
+									<div th:case="*">
+										<a href="<span th:text="${baseUrl}" />&<span th:text="${page.query}" />"><span th:text="${page.name}" /></a>
+									</div>
+								</div>
+							</th:block>	
+						</td>
+					</tr></tbody>
+				</table>
+			</td>
+		</tr>
+		</div>
+	</table>
+</div>

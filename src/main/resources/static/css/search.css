@@ -1,0 +1,42 @@
+.name{float:left;font-weight:bold;margin-bottom:5px;width:85%;}
+.name:hover {text-decoration: underline;cursor:pointer;}
+.dateExpression{float:right;text-align:right;font-style:italic;}
+.description{margin-left:20px;width:85%}
+.summary{margin-left:20px;width:85%}
+.collectionName{float:right;text-align:right;margin-bottom:5px;width:15%;}
+.accordion-collapse {float: right;}
+.datagrid-row{border-top:1px solid black;}
+.datalist .datagrid-cell{white-space:normal;text-overflow:unset;overflow:hidden;}
+.datagrid-btable{width:100%;}
+.breadcrumb-entry{font-weight:bold;line-height:20px;}
+.fa-w-20{width:25px;height:12px;}
+	
+#detail-window{width:975px;}
+.detail-panel{padding:10px;}
+.detail-row{margin-bottom:8px;}
+#collection-detail-left{float:left;width:36%;}
+#collection-detail-center{float:left;width:60%;}
+.collection-detail-label{font-weight:bold;}
+.collection-detail-value{margin-left:8px;}
+#detail-object-viewer{height:300px;width:500px;margin:5px 0px;}
+#detail-object-navigation{width:100%;}
+
+.description{min-height:30px;}
+
+.search-result{padding:10px 5px;border: 1px solid #ebebeb;width:100%;margin:2px;}
+.entity-path{margin-left:15px;}
+.entity-path-value{font-size:12px;}
+
+.fa-folder-open{font-size:14px;margin:0 5px;}
+.fa-circle{font-size:8px;margin:0 8px;vertical-align:middle;}
+
+.datagrid-header-row, .datagrid-row {
+    height: 0px;
+}
+.datagrid-header td, .datagrid-body td, .datagrid-footer td {
+    border-width: 0;
+}
+.panel-header{height:32px;}
+.fa-sort-numeric-up, .fa-sort-alpha-down {font-size:17px;}
+
+.headerDivider {float:left;margin:4px 12px;border-left:1px solid #aaaaaa;border-right:1px solid #aaaaaa;height:18px;}

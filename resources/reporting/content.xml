@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<reports>
+	<report name="video_weblinks" label="Video Web Links" result_type="target">
+		<search_request query="" />
+	</report>
+</reports>

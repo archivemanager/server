@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>		
+		<div th:replace="fragments/header :: javascript"/>
+		<link rel="stylesheet" type="text/css" href="/css/documentation.css" />
+
+		<script type="text/javascript" src="/js/documentation.js"></script>
+		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer=""></script>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<table style="width:100%;height:100%;">
+			<tr>
+				<td style="vertical-align:top;height:80px;" colspan="2"><div th:replace="fragments/header :: content" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top;">
+					<div th:replace="fragments/menus :: main" />
+				</td>
+				<td style="width:100%;vertical-align:top;">
+					<div id="javadoc">
+						<div class="sect2">
+							<h3>Application Developers</h3>
+							<p>
+								Remote access to the ArchiveManager api follows a conventional token-based security system.  
+								Client developers should log on to receive a secure token which is then included in subsequent calls.
+							</p>
+							<ul style="list-style: none;">
+								<li style="margin:10px 0;"> 1) The user logs in with a POST request containing his username and password. 
+									<div style="margin-left:20px;"><b>http://servername/service/auth/login?email=&password=</b></div>
+								</li>
+								<li style="margin:10px 0;">
+									2) The server returns a temporary / permanent authentication token.
+								</li>
+								<li style="margin:10px 0;">
+									3) The user sends the token within each HTTP request via an HTTP header Authorization: Bearer TOKEN.
+								</li>
+							</ul>		
+						</div>
+					</div>
+				</td>
+			</tr>			
+		</table>
+	</body>
+</html>

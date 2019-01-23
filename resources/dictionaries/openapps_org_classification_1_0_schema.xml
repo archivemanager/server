@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<dictionary qname="openapps_org_classification_1_0_schema" name="Classification Dictionary" label="" description="classification - names and subjects">
+	<models>
+		<model namespace="openapps_org_classification_1_0" localname="academic_course" label="Academic Course" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>Academic Course</description>
+			<properties>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_classification_1_0" localname="users" label="Users" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_system_1_0" localname="user"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_classification_1_0" localname="corporation" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_classification_1_0" localname="named_entity"/>
+			<description>Corporation</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="subordinate2" mandatory="false" unique="false" hidden="false" label="Subordinate2" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="subordinate1" mandatory="false" unique="false" hidden="false" label="Subordinate1" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="salutation" mandatory="false" unique="false" hidden="false" label="Salutation" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="role" mandatory="false" unique="false" hidden="false" label="Role" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_classification_1_0" localname="entry" label="" stored="true" searchable="true">
+			<description>AM Repository Entry</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="date" mandatory="false" unique="false" hidden="false" label="Date" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_classification_1_0" localname="collection_name" mandatory="false" unique="false" hidden="false" label="Collection" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="location" mandatory="false" unique="false" hidden="false" label="Location" searchable="false">
+				</property>
+				<property type="longtext" namespace="openapps_org_classification_1_0" localname="items" mandatory="false" unique="false" hidden="false" label="Items" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_classification_1_0" localname="entries" label="Entries" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_classification_1_0" localname="entry"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_classification_1_0" localname="family" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_classification_1_0" localname="named_entity"/>
+			<description>Family</description>
+			<properties>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_classification_1_0" localname="named_entity" label="Named Entity" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>Named Entity</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="fuller_form_name" mandatory="false" unique="false" hidden="false" label="Fuller Form Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="dates" mandatory="false" unique="false" hidden="false" label="Dates" searchable="false">
+				</property>
+				<property type="mediumtext" namespace="openapps_org_classification_1_0" localname="url" mandatory="false" unique="false" hidden="false" label="Url" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="citation" mandatory="false" unique="false" hidden="false" label="Citation" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="secondary_name" mandatory="false" unique="false" hidden="false" label="Secondary Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="primary_name" mandatory="false" unique="false" hidden="false" label="Primary Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="note_type" mandatory="false" unique="false" hidden="false" label="Note Type" searchable="false">
+				</property>
+				<property type="longtext" namespace="openapps_org_classification_1_0" localname="note" mandatory="false" unique="false" hidden="false" label="Note" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="function" mandatory="false" unique="false" hidden="false" label="Function" searchable="false">
+					<values>
+						<value value="1" label="Biography" />
+						<value value="2" label="Administrative History" />
+					</values>
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="rule" mandatory="false" unique="false" hidden="false" label="Rule" searchable="false">
+					<values>
+						<value value="1" label="Local" />
+						<value value="2" label="Describing Archives: A Content Standard" />
+						<value value="3" label="Anglo-American Cataloguing Rules" />
+					</values>
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="source" mandatory="false" unique="false" hidden="false" label="Source" searchable="false">
+					<values>
+						<value value="1" label="Union List of Artist Names" />
+						<value value="2" label="NAD/ARK II Authority Database" />
+						<value value="3" label="NACO Authority File" />
+						<value value="4" label="Local Sources" />
+						<value value="5" label="ingest" />
+					</values>
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_classification_1_0" localname="entries" label="Entries" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_classification_1_0" localname="entry"></target>
+				</association>
+				<association namespace="openapps_org_content_1_0" localname="web_links" label="Web Links" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_content_1_0" localname="web_link"></target>
+				</association>
+				<association namespace="openapps_org_content_1_0" localname="web_content_items" label="Web_content_items" hidden="true" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_content_1_0" localname="web_content"></target>
+				</association>
+				<association namespace="openapps_org_search_1_0" localname="search_terms" label="Search_terms" hidden="true" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_search_1_0" localname="search_term"></target>
+				</association>
+				<association namespace="openapps_org_classification_1_0" localname="named_entities" label="Named_entities" hidden="true" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_classification_1_0" localname="named_entity"></target>
+				</association>
+				<association namespace="openapps_org_system_1_0" localname="permissions" label="Permissions" hidden="true" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_system_1_0" localname="permission"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_classification_1_0" localname="person" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_classification_1_0" localname="named_entity"/>
+			<description>Person</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="suffix" mandatory="false" unique="false" hidden="false" label="Suffix" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="title" mandatory="false" unique="false" hidden="false" label="Title" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="prefix" mandatory="false" unique="false" hidden="false" label="Prefix" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="salutation" mandatory="false" unique="false" hidden="false" label="Salutation" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="rest_of_name" mandatory="false" unique="false" hidden="false" label="Rest of Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="form" mandatory="false" unique="false" hidden="false" label="Form" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_classification_1_0" localname="place" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_classification_1_0" localname="named_entity"/>
+			<description>Place</description>
+			<properties>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_classification_1_0" localname="subject" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>Subject</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_system_1_0" localname="url" mandatory="false" unique="false" hidden="false" label="Url" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="citation" mandatory="false" unique="false" hidden="false" label="Citation" searchable="false">
+				</property>
+				<property type="longtext" namespace="openapps_org_system_1_0" localname="note" mandatory="false" unique="false" hidden="false" label="Note" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="note_type" mandatory="false" unique="false" hidden="false" label="Note Type" searchable="false">
+					<values>
+						<value value="Biography" label="Biography" />
+						<value value="Administrative History" label="Administrative History" />
+					</values>
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+					<values>
+						<value value="Uniform Title (630)" label="Uniform Title (630)" />
+						<value value="Topical Term (650)" label="Topical Term (650)" />
+						<value value="Occupation (656)" label="Occupation (656)" />
+						<value value="Geographic Name (651)" label="Geographic Name (651)" />
+						<value value="Genre/Form (655)" label="Genre/Form (655)" />
+						<value value="Function (657)" label="Function (657)" />
+						<value value="Academic Course" label="Academic Course" />
+					</values>
+				</property>
+				<property type="smalltext" namespace="openapps_org_classification_1_0" localname="source" mandatory="false" unique="false" hidden="false" label="Source" searchable="false">
+					<values>
+						<value value="Thesaurus for Graphic Materials" label="Thesaurus for Graphic Materials" />
+						<value value="Medical Subject Headings" label="Medical Subject Headings" />
+						<value value="Local Sources (local)" label="Local Sources (local)" />
+						<value value="Library of Congress Subject Headings (lcsh)" label="Library of Congress Subject Headings (lcsh)" />
+						<value value="lcnaf" label="lcnaf" />
+						<value value="ingest" label="ingest" />
+						<value value="Getty Thesaurus of Geographic Names (tgn)" label="Getty Thesaurus of Geographic Names (tgn)" />
+						<value value="GeoRef Thesaurus (georeft)" label="GeoRef Thesaurus (georeft)" />
+						<value value="Genre Terms: A Thesaurus for Use in Rare Book and Special Collections Cataloging (rbgenr)" label="Genre Terms: A Thesaurus for Use in Rare Book and Special Collections Cataloging (rbgenr)" />
+						<value value="Dictionary of Occupational Titles (dot)" label="Dictionary of Occupational Titles (dot)" />
+						<value value="Art and Architecture Thesaurus (aat)" label="Art and Architecture Thesaurus (aat)" />
+						<value value="Subject Guide" label="Subject Guide" />
+					</values>
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_content_1_0" localname="web_links" label="Web Links" hidden="true" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_content_1_0" localname="web_link"></target>
+				</association>
+				<association namespace="openapps_org_content_1_0" localname="web_content_items" label="Web Content Items" hidden="true" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_content_1_0" localname="web_content"></target>
+				</association>
+				<association namespace="openapps_org_classification_1_0" localname="users" label="Users" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_system_1_0" localname="user"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_classification_1_0" localname="tag" label="" stored="true" searchable="false">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>Tag</description>
+			<properties>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+	</models>
+</dictionary>

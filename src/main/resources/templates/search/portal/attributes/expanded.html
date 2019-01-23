@@ -1,0 +1,19 @@
+
+<dl class="accordion">
+	<th:block th:each="attribute,astatus : ${attributes}">
+	<div th:if="${attribute.display}">
+		<dt>
+			<a id="mymenu-1-label" href="#toggle" tabindex="0" class="yui-accordion-toggle" role="treeitem">
+				<span th:text="${attribute.name}" /> (<span th:text="${attribute.count}" />)<span class="indicator"></span>
+			</a>
+		</dt>
+		<dd>
+			<ul class="submenu">
+				<th:block th:each="value,vstatus : ${attribute.values}">
+					<a th:href="@{${baseUrl}(query=${value.query})}"><th:block th:text="${value.name}" /> (<th:block th:text="${value.count}" />)</a>
+				</th:block>
+			</ul>
+		</dd>
+	</div>
+	</th:block>
+</dl>

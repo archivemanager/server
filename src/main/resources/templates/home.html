@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>
+		<style>
+			#leftColumn{border-width:0px;}
+			.fa-sort-numeric-up, .fa-sort-alpha-down {font-size:17px;}
+		</style>
+		
+		<div th:replace="fragments/header :: javascript"/>
+		<script type="text/javascript" src="/easyui-1.6.2/ext/jquery.portal.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/home.css" />
+		<script type="text/javascript" src="/js/home.js"></script>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<div th:replace="fragments/header :: content"/>
+		<div>
+			<table style="width:100%;height:100%;">
+				<tr style="vertical-align:top;">
+					<td style="width:100px;">
+						<div th:replace="fragments/menus :: main" />
+					</td>
+					<td>
+						<div style="width:100%;height:100%;">
+							<div style="width:400px;height:100%;float:left;margin-right:10px;">
+								<div class="panel-header" style="width:388px;">
+									<div class="panel-title">Top 20 Collections</div>
+									<div class="panel-tool">
+										<a href="#"><i class="fas fa-sort-alpha-down" onclick="doSearch('openapps_org_repository_1_0_collection_id','alpha')"></i></a>
+										<a href="#"><i class="fas fa-sort-numeric-up"  onclick="doSearch('openapps_org_repository_1_0_collection_id','numeric')"></i></a>
+									</div>
+								</div>
+								<table id="openapps_org_repository_1_0_collection_id" class="easyui-datagrid" style="width:100%;height:680px;"></table>
+							</div>
+							<div style="width:400px;float:left;margin-right:10px;">
+								<div class="panel-header" style="width:388px;">
+									<div class="panel-title">Top Subjects</div>
+									<div class="panel-tool">
+										<a href="#"><i class="fas fa-sort-alpha-down" onclick="doSearch('openapps_org_classification_1_0_subjects','alpha')"></i></a>
+										<a href="#"><i class="fas fa-sort-numeric-up"  onclick="doSearch('openapps_org_classification_1_0_subjects','numeric')"></i></a>										
+									</div>
+								</div>
+								<table id="openapps_org_classification_1_0_subjects" class="easyui-datagrid" style="width:100%;height:680px;"></table>
+							</div>
+							<div style="width:400px;float:left;margin-right:10px;">
+								<div class="panel-header" style="width:388px;">
+									<div class="panel-title">Top People</div>
+									<div class="panel-tool">
+										<a href="#"><i class="fas fa-sort-alpha-down" onclick="doSearch('openapps_org_classification_1_0_people','alpha')"></i></a>
+										<a href="#"><i class="fas fa-sort-numeric-up"  onclick="doSearch('openapps_org_classification_1_0_people','numeric')"></i></a>										
+									</div>
+								</div>
+								<table id="openapps_org_classification_1_0_people" class="easyui-datagrid" style="width:100%;height:680px;"></table>
+							</div>
+							<div style="width:400px;float:left;">
+								<div class="panel-header" style="width:388px;">
+									<div class="panel-title">Top Corporations</div>
+									<div class="panel-tool">
+										<a href="#"><i class="fas fa-sort-alpha-down" onclick="doSearch('openapps_org_classification_1_0_corporations','alpha')"></i></a>
+										<a href="#"><i class="fas fa-sort-numeric-up"  onclick="doSearch('openapps_org_classification_1_0_corporations','numeric')"></i></a>
+									</div>
+								</div>
+								<table id="openapps_org_classification_1_0_corporations" class="easyui-datagrid" style="width:100%;height:680px;"></table>
+							</div>							    
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

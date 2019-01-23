@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/header :: css"/>		
+		<div th:replace="fragments/header :: javascript"/>
+		<script type="text/javascript" src="/js/indexing/index.js"></script>
+		<style>
+			.accordion-collapse {float: right;}
+			.textbox-label{font-weight:bold;width:80px;}		
+			.tabs-panels{border-width:0;}
+			.tabs-header{display:none;}
+			.tabs-wrap{height:0;}
+			.textbox-label{width:77px;}
+		</style>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<table style="width:100%;height:100%;">
+			<tr>
+				<td style="vertical-align:top;height:80px;" colspan="2"><div th:replace="fragments/header :: content" /></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top;">
+					<div th:replace="fragments/menus :: main" />
+				</td>
+				<td style="width:100%;vertical-align:top;">
+					<div id="tabs1" class="easyui-tabs" >
+						<div id="dictionary-form" title="dictionary-form" class="screen">
+							<div class="rounded-border" style="float:left;width:500px;height:100%;margin:15px;">	
+								<div style="width:100%;height:34px;margin-bottom:25px;">
+									<a style="float:left;margin-top:5px;margin-right:5px;" href="javascript:window.history.back();"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i></a>
+									<div style="float:left;font-size:32px;margin-top:12px;">Dictionary</div>			
+								</div>			
+								<table id="dg" style="width:99%;height:99%;" title="Models" class="easyui-datagrid" toolbar="#toolbar" singleSelect="true" pageSize="20">
+							        <thead>
+							            <tr>
+							            	<th field="label" width="200">Name</th>
+							            	<th field="searchable" width="100">Searchable</th>
+							            	<th field="qname" width="100" formatter="formatIcons"></th>		            	      
+							            </tr>
+							        </thead>
+							    </table>
+							    <div id="toolbar">
+							        <a href="javascript:void(0)" class="easyui-linkbutton" plain="true" onclick="doIndexAll()"><i class="fas fa-database"></i>Index All</a>
+								</div>
+							</div>
+						</div>
+						<div id="model-form" title="model-form" class="screen">
+							<div style="width:100%;height:34px;">
+								<a style="float:left;margin-top:5px;margin-right:5px;" href="javascript:navigate('dictionary-form')"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i></a>
+								<div style="float:left;font-size:32px;">Model</div>
+								<div style="display:table;width:300px;float:right;text-align:right;padding-right:20px;">
+									<a href="#" class="easyui-linkbutton" style="margin-right:5px;" onclick="doSaveUser();">Save</a>
+									<a href="#" class="easyui-linkbutton" onclick="doCancel();">Cancel</a>
+								</div>
+							</div>
+							<div class="rounded-border" style="width:750px;;display:table;margin-bottom:10px;">				
+								<form id="fm" method="post" style="margin:0;">
+							       	<input name="id" th:value="${dictionary.id}" type="hidden" />
+							        <div style="width:70%;float:left;">
+							        	<div style="margin:10px">
+								        	<input name="name" class="easyui-textbox" label="Name:" style="width:100%"/>
+								        </div>
+								        <div style="margin:10px">
+								        	<input name="qname" class="easyui-textbox" label="QName:" style="width:100%"/>
+								        </div>
+								        <div style="margin:10px">
+								        	<input name="description" class="easyui-textbox" label="Description:" style="width:100%"/>
+								        </div>
+							        </div>
+							        <div style="width:30%;float:left;">
+							        	<div style="margin:10px">
+								        	
+								        </div>
+								        <div style="margin:10px">
+											<label class="textbox-label textbox-label-before" for="public">Public:</label>
+										    <input id="public" name="public" type="checkbox" class="easyui-radio" />
+										</div>
+							        </div>
+							    </form>	    
+							</div>
+									
+							<div class="rounded-border" style="width:750px;display:table;">
+							   	<div style="padding:5px;">
+							   		<div style="width:275px;float:left;">
+							   			<div class="rounded-border">
+							   				<div style="display:table;width:100%;margin-bottom:5px;">
+							   					<span style="font-weight:bold;font-size:15px;">Fields</span>
+							   					<a href="#" style="margin-right:5px;float:right;" onclick="doRemove();"><i class="fas fa-minus-circle"></i></a>
+												<a href="#" style="float:right;" onclick="doAddField();"><i class="fas fa-plus-circle"></i></a>						
+											</div>
+							    			<div id="field-list" style="max-height:300px;margin-bottom:10px;"></div>
+							    			<div style="display:table;width:100%;margin-bottom:5px;margin-top:25px;">
+							    				<span style="font-weight:bold;font-size:15px;">Source Associations</span>
+							    				<a href="#" style="margin-right:5px;float:right;" onclick="doRemove();"><i class="fas fa-minus-circle"></i></a>
+												<a href="#" style="float:right;" onclick="doAddAssociation();"><i class="fas fa-plus-circle"></i></a>						
+											</div>
+							    			<div id="source-list" style="max-height:300px;"></div>
+							    			<div style="display:table;width:100%;margin-bottom:5px;margin-top:25px;">
+							    				<span style="font-weight:bold;font-size:15px;">Target Associations</span>	    								
+											</div>
+							    			<div id="target-list" style="max-height:300px;"></div>	    			
+							    		</div>
+							    	</div>
+							    	<div style="width:450px;float:right;">
+							    		<div id="tabs2" class="easyui-tabs">
+							    			<div id="intro-form" title="intro-form" class="screen">
+							    				<div class="rounded-border" style="text-align:center;display:table;width:98%;height:250px;">
+							    					<img style="margin-top:85px;" src="/images/logo/ArchiveManager200.png" />
+							    				</div>
+							    			</div>
+											<div id="field-form" title="field-form">
+												<div class="rounded-border" style="display:table;width:95%;margin-bottom:10px;">				
+													<form id="field-form-fm" method="post" style="margin:0;">
+												       	<input name="id" th:value="${dictionary.id}" type="hidden" />
+												        <div style="width:98%;float:left;">
+												        	<div style="margin:10px">
+													        	<input name="name" class="easyui-textbox" label="Name:" style="width:98%" />
+													        </div>
+													        <div style="margin:10px">
+													        	<input name="qname" class="easyui-textbox" label="QName:" style="width:98%"/>
+													        </div>
+													        <div style="margin:10px">
+													        	<input name="description" class="easyui-textbox" label="Description:" style="width:98%"/>
+													        </div>		        
+												        </div>	        
+												    </form>	    	    
+												</div>
+												<div class="rounded-border" style="display:table;width:95%;">
+													<div style="margin:10px">
+													   	<div style="display:table;width:100%;margin-bottom:5px;margin-top:25px;">
+												    		<span style="font-weight:bold;font-size:15px;">Values</span>
+												    		<a href="#" style="margin-right:5px;float:right;" onclick="doRemove();"><i class="fas fa-minus-circle"></i></a>
+															<a href="#" style="float:right;" onclick="doAddAssociation();"><i class="fas fa-plus-circle"></i></a>						
+														</div>
+													   	<div id="field-value-list" class="easyui-datalist"></div>
+													   	
+													</div>
+												</div>
+											</div>
+											<div id="association-form" title="association-form">
+												<div class="rounded-border" style="display:table;width:95%;margin-bottom:10px;">				
+													<form id="fm" method="post" style="margin:0;">
+												       	<input name="id" th:value="${dictionary.id}" type="hidden" />
+												        <div style="width:70%;float:left;">
+												        	<div style="margin:10px">
+													        	<input name="name" class="easyui-textbox" label="Name:" style="width:98%"/>
+													        </div>
+													        <div style="margin:10px">
+													        	<input name="qname" class="easyui-textbox" label="QName:" style="width:100%"/>
+													        </div>
+													        <div style="margin:10px">
+													        	<input name="description" class="easyui-textbox" label="Description:" style="width:100%"/>
+													        </div>
+												        </div>
+												        <div style="width:30%;float:left;">
+												        	<div style="margin:10px">
+													        	
+													        </div>
+													        <div style="margin:10px">
+																<label class="textbox-label textbox-label-before" for="public">Public:</label>
+															    <input id="public" name="public" type="checkbox" class="easyui-radio" />
+															</div>
+												        </div>
+												    </form>
+												</div>	
+												<div class="rounded-border" style="display:table;width:95%;">
+													<div style="margin:10px">
+													   	<div style="display:table;width:100%;margin-bottom:5px;margin-top:25px;">
+												    		<span style="font-weight:bold;font-size:15px;">Values</span>
+												    		<a href="#" style="margin-right:5px;float:right;" onclick="doRemove();"><i class="fas fa-minus-circle"></i></a>
+															<a href="#" style="float:right;" onclick="doAddAssociation();"><i class="fas fa-plus-circle"></i></a>						
+														</div>
+													   	<div id="association-field-list" class="easyui-datalist"></div>
+													   	
+													</div>
+												</div>
+											</div>		
+										</div>
+							    	</div>	    
+							    </div>	
+							</div>
+						</div>		
+					</div>
+				</td>
+			</tr>			
+		</table>
+	</body>
+</html>

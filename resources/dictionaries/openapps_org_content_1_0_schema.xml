@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<dictionary qname="openapps_org_content_1_0_schema" name="Content Dictionary" label="" description="files and folders">
+	<models>
+		<model namespace="openapps_org_content_1_0" localname="content" label="" stored="true" searchable="false">
+			<description>AM Content</description>
+			<properties>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="group" mandatory="false" unique="false" hidden="false" label="Group" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_content_1_0" localname="order" mandatory="false" unique="false" hidden="false" label="Order" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_content_1_0" localname="digital_content" label="Digital Content" stored="true" searchable="true">
+			<parent namespace="openapps_org_content_1_0" localname="content"/>
+			<description>AM Digital Content</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="file" namespace="openapps_org_content_1_0" localname="file" mandatory="false" unique="true" hidden="false" label="File" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="mimetype" mandatory="false" unique="false" hidden="false" label="Mimetype" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_content_1_0" localname="width" mandatory="false" unique="false" hidden="false" label="Width" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_content_1_0" localname="height" mandatory="false" unique="false" hidden="false" label="Height" searchable="false">
+				</property>
+				<property type="long" namespace="openapps_org_system_1_0" localname="datasource" mandatory="false" unique="false" hidden="false" label="Datasource" searchable="false">
+				</property>
+				<property type="long" namespace="openapps_org_system_1_0" localname="foreignkey" mandatory="false" unique="false" hidden="false" label="Foreignkey" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_content_1_0" localname="event" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_content_1_0" localname="content"/>
+			<description>Events</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="location" mandatory="false" unique="false" hidden="false" label="Location" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="series" mandatory="false" unique="false" hidden="false" label="Series" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="restrictions" mandatory="false" unique="false" hidden="false" label="Restrictions" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_content_1_0" localname="exhibition" label="" stored="true" searchable="true">
+			<parent namespace="openapps_org_content_1_0" localname="content"/>
+			<description>Exhibitions</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="type" mandatory="false" unique="false" hidden="false" label="Type" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_content_1_0" localname="file" label="" stored="true" searchable="false">
+			<parent namespace="openapps_org_system_1_0" localname="entity"/>
+			<description>AM File</description>
+			<properties>
+				<property type="3" namespace="openapps_org_system_1_0" localname="foreignkey" mandatory="false" unique="false" hidden="false" label="Foreignkey" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_system_1_0" localname="url" mandatory="false" unique="false" hidden="false" label="Url" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="mimetype" mandatory="false" unique="false" hidden="false" label="Mimetype" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="content_type" mandatory="false" unique="false" hidden="false" label="Content_type" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_content_1_0" localname="size" mandatory="false" unique="false" hidden="false" label="Size" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="path" mandatory="false" unique="false" hidden="false" label="Path" searchable="false">
+				</property>
+				<property type="3" namespace="openapps_org_content_1_0" localname="datasource" mandatory="false" unique="false" hidden="false" label="Datasource" searchable="false">
+				</property>
+				<property type="3" namespace="openapps_org_content_1_0" localname="width" mandatory="false" unique="false" hidden="false" label="Width" searchable="false">
+				</property>
+				<property type="3" namespace="openapps_org_content_1_0" localname="height" mandatory="false" unique="false" hidden="false" label="Height" searchable="false">
+				</property>
+				<property type="date" namespace="openapps_org_content_1_0" localname="group" mandatory="false" unique="false" hidden="false" label="Group" searchable="false">
+				</property>
+				<property type="smalltext" namespace="openapps_org_content_1_0" localname="updated" mandatory="false" unique="false" hidden="false" label="Updated" searchable="false">
+				</property>
+				<property type="integer" namespace="openapps_org_content_1_0" localname="order" mandatory="false" unique="false" hidden="false" label="Order" searchable="false">
+				</property>
+			</properties>
+			<associations>
+				<association namespace="openapps_org_classification_1_0" localname="named_entities" label="Named_entities" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_classification_1_0" localname="named_entity"></target>
+				</association>
+				<association namespace="openapps_org_classification_1_0" localname="subjects" label="Subjects" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_classification_1_0" localname="subject"></target>
+				</association>
+				<association namespace="openapps_org_classification_1_0" localname="tags" label="Tags" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_classification_1_0" localname="tag"></target>
+				</association>
+				<association namespace="openapps_org_system_1_0" localname="tasks" label="Tasks" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_system_1_0" localname="task"></target>
+				</association>
+				<association namespace="openapps_org_system_1_0" localname="notes" label="Notes" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_system_1_0" localname="note"></target>
+				</association>
+				<association namespace="openapps_org_content_1_0" localname="files" label="Files" hidden="false" cascade="false" many="false" view="null">
+					<target namespace="openapps_org_content_1_0" localname="file"></target>
+				</association>
+			</associations>
+		</model>
+		<model namespace="openapps_org_content_1_0" localname="web_link" label="Web Link" stored="true" searchable="true">
+			<parent namespace="openapps_org_content_1_0" localname="content"/>
+			<labelname namespace="openapps_org_system_1_0" localname="url"/>
+			<description>AM Web Link</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_system_1_0" localname="url" mandatory="false" unique="false" hidden="false" label="Url" searchable="false">
+				</property>
+				<property type="boolean" namespace="openapps_org_content_1_0" localname="archived" mandatory="false" unique="false" hidden="false" label="Archived" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+		<model namespace="openapps_org_content_1_0" localname="web_content" label="Web Content" stored="true" searchable="true">
+			<parent namespace="openapps_org_content_1_0" localname="content"/>
+			<description>AM Web Content</description>
+			<properties>
+				<property type="mediumtext" namespace="openapps_org_system_1_0" localname="name" mandatory="false" unique="false" hidden="false" label="Name" searchable="false">
+				</property>
+				<property type="longtext" namespace="openapps_org_system_1_0" localname="content" mandatory="false" unique="false" hidden="false" label="Content" searchable="false">
+				</property>
+			</properties>
+			<associations>
+			</associations>
+		</model>
+	</models>
+</dictionary>
